@@ -1,0 +1,25 @@
+model-triat-controller
+
+Model adalah salah satu fitur utama dalam Laravel yang digunakan 
+untuk berinteraksi dengan tabel pada database. 
+Model memudahkan proses manipulasi data dan 
+menangani logika bisnis dalam aplikasi. 
+Dalam kasus konversi mata uang,
+model bisa digunakan untuk menyimpan nilai tukar mata uang, 
+melakukan konversi antara mata uang, dan menyimpan riwayat 
+konversi.
+
+Dalam beberapa kasus yang sederhana, 
+traits bisa digunakan sebagai solusi 
+alternatif untuk memudahkan 
+konversi mata uang di controller. 
+Namun, jika program semakin kompleks 
+dan membutuhkan pengaturan nilai tukar mata uang 
+yang kompleks, 
+lebih baik menggunakan model untuk 
+menangani proses tersebut.
+
+jika sederhana maka triat
+jika komplek maka model
+
+merujuk dengan alamat yang file.
