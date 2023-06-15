@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KategoriSuplierController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
 // Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
@@ -44,9 +45,14 @@ Route::put('kategori-suplier/{id}', [KategoriSuplierController::class, 'update']
 Route::delete('kategori-suplier/{id}', [KategoriSuplierController::class, 'destroy'])->name('kategori.suplier.destroy');
 
 Route::get('/', function () {
-    return view('owner.master_product_index');
+    Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
+    return view('blank');
+    // return view('owner.master_product_index');
     // return view('skull.dashboard');
     // return view('welcome');
+    // ada di halaman blank dan sudah terintergrasi
+    // dengan info.js
+    // https://introjs.com/docs/examples/basic/json-config
 });
 
 Route::get('test', function () {

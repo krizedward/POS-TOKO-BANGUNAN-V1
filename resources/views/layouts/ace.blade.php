@@ -214,6 +214,8 @@
 							</div><!-- /.ace-settings-box -->
 						</div><!-- /.ace-settings-container -->
 
+            @include('sweetalert::alert')
+
 						@yield('page-header')
 
 						<div class="row">
