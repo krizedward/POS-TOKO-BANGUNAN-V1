@@ -15,32 +15,32 @@ class KategoriProdukController extends Controller
     //
     public function index(): View
     { // menampilkan data yang ada di kategori_produk
-        try {
-        	// testing data
-        	$data = KategoriProduk::all();
-        	// dd($index);
-        	return view('skull.admin.kategori_produk_index', compact('data'));
-
-        } catch (\Exception $e) {
-		    // Tangani exception yang terjadi
-		    // $result = null;
-		    dd($e->getMessage());
-
-		}
+      try {
+      	// testing data
+      	$data = KategoriProduk::all();
+      	// dd($index);
+      	return view('skull.admin.kategori_produk_index', compact('data'));
+      } catch (\Exception $e) {
+				// Tangani exception yang terjadi
+				// $result = null;
+				dd($e->getMessage());
+			}
     }
 
     public function create(): View
     { // menampilkan form data yang ada di kategori_produk
-        try {
-        	// testing data
-        	// dd($create);
-        	return view('skull.admin.kategori_produk_create');
+      try {
+      	
+				// testing data
+      	// dd($create);
+      	return view('skull.admin.kategori_produk_create');
 
-        } catch (\Exception $e) {
-        	// Tangani exception yang terjadi
-        	dd($e->getMessage());
+      } catch (\Exception $e) {
 
-        }
+      	// Tangani exception yang terjadi
+      	dd($e->getMessage());
+				
+      }
     }
 
     public function store(Request $request): RedirectResponse

@@ -22,10 +22,11 @@
   <!-- page-header -->
   <div class="page-header">
     <h1>
-      Top Menu Style
-      <small>
+      Kategori Produk
+      <small data-step="1" data-intro="Menampilkan tabel kategori">
         <i class="ace-icon fa fa-angle-double-right"></i>
-        top menu &amp; navigation
+        <!-- top menu &amp; navigation -->
+        index
       </small>
     </h1>
   </div><!-- /.page-header -->

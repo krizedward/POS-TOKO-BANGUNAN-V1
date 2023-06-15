@@ -46,13 +46,19 @@ Route::delete('kategori-suplier/{id}', [KategoriSuplierController::class, 'destr
 
 Route::get('/', function () {
     Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
-    return view('blank');
+    return view('kategori_produk.index');
+    // return view('blank');
     // return view('owner.master_product_index');
     // return view('skull.dashboard');
     // return view('welcome');
     // ada di halaman blank dan sudah terintergrasi
     // dengan info.js
     // https://introjs.com/docs/examples/basic/json-config
+});
+
+Route::get('/page', function () {
+    Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
+    return view('blank');
 });
 
 Route::get('test', function () {
