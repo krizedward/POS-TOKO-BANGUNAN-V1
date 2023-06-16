@@ -14,7 +14,7 @@
       <small data-step="1" data-intro="Menampilkan tabel kategori">
         <i class="ace-icon fa fa-angle-double-right"></i>
         <!-- top menu &amp; navigation -->
-        index page
+        create page
       </small>
     </h1>
   </div><!-- /.page-header -->

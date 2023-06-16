@@ -3,15 +3,7 @@
 
 <!-- main -->
 @push('header')
-  <div class="page-header">
-    <h1>
-      Top Menu Style
-      <small>
-        <i class="ace-icon fa fa-angle-double-right"></i>
-        top menu &amp; navigation
-      </small>
-    </h1>
-  </div><!-- /.page-header -->
+  <!-- untuk style header -->
 @endpush
 
 @section('breadcrumbs')
@@ -22,10 +14,10 @@
   <!-- page-header -->
   <div class="page-header">
     <h1>
-      Top Menu Style
+      Dashboard
       <small>
         <i class="ace-icon fa fa-angle-double-right"></i>
-        top menu &amp; navigation
+        summary
       </small>
     </h1>
   </div><!-- /.page-header -->

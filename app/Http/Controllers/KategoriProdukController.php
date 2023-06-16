@@ -19,7 +19,8 @@ class KategoriProdukController extends Controller
       	// testing data
       	$data = KategoriProduk::all();
       	// dd($index);
-      	return view('skull.admin.kategori_produk_index', compact('data'));
+      	return view('kategori_produk.index', compact('data'));
+      	// return view('skull.admin.kategori_produk_index', compact('data'));
       } catch (\Exception $e) {
 				// Tangani exception yang terjadi
 				// $result = null;
@@ -33,8 +34,8 @@ class KategoriProdukController extends Controller
       	
 				// testing data
       	// dd($create);
-      	return view('skull.admin.kategori_produk_create');
-
+      	return view('kategori_produk.create');
+      	// return view('skull.admin.kategori_produk_create');
       } catch (\Exception $e) {
 
       	// Tangani exception yang terjadi

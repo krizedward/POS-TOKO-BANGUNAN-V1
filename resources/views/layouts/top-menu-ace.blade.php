@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('assets/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
 
   <!-- page specific plugin styles -->
+  @stack('header')
 
   <!-- text fonts -->
   <link rel="stylesheet" href="{{ asset('assets/css/fonts.googleapis.com.css')}}" />
@@ -50,7 +51,6 @@
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/intro.js/minified/introjs.min.css">
   <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 </head>
-@include('sweetalert::alert')
 <body class="no-skin">
   <div id="navbar" class="navbar navbar-default navbar-collapse h-navbar ace-save-state">
     @include('layouts.header.topmenu-main-ace')
@@ -64,6 +64,7 @@
     @include('layouts.menu.topmenu-main-ace')
 
     <div class="main-content">
+      @include('sweetalert::alert')
       <div class="main-content-inner">
         <div class="page-content">
 
