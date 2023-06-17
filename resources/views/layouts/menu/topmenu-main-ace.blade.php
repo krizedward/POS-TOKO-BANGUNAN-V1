@@ -16,8 +16,17 @@
           <b class="arrow"></b>
         </li>
 
-        <li class="{{ Route::currentRouteName() === 'kategori.suplier.index' ? 'active open' : '' }} hover">
-          <a href="{{ route('kategori.suplier.index') }}">
+        <li class="{{ Route::currentRouteName() === 'produk.index' ? 'active open' : '' }} hover">
+          <a href="{{ route('produk.index') }}">
+            <i class="menu-icon fa fa-desktop"></i>
+            <span class="menu-text"> Monitor Produk </span>
+          </a>
+
+          <b class="arrow"></b>
+        </li>
+
+        <li class="#">
+          <a href="#">
             <i class="menu-icon fa fa-users"></i>
             <span class="menu-text"> Langganan </span>
           </a>
@@ -25,14 +34,14 @@
           <b class="arrow"></b>
         </li>
 
-        <li class="{{ Route::currentRouteName() === 'kategori.produk.index' ? 'active open' : '' }} hover">
+        <!-- <li class="{{ Route::currentRouteName() === 'kategori.produk.index' ? 'active open' : '' }} hover">
           <a href="{{ route('kategori.produk.index') }}">
-            <i class="menu-icon fa fa-desktop"></i>
-            <span class="menu-text"> Monitor Barang </span>
+            <i class="menu-icon fa fa-users"></i>
+            <span class="menu-text"> Monitor Kategori </span>
           </a>
 
           <b class="arrow"></b>
-        </li>
+        </li> -->
         
       </ul><!-- /.nav-list -->
     </div>

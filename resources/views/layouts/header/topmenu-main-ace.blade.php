@@ -4,7 +4,7 @@
           <small>
             <!-- <i class="fa fa-leaf"></i>
             Ace Admin -->
-            Program Toko Bangunan
+            Prosedur Operasional Standar Toko Bangunan Jaya Lestari
           </small>
         </a>
 

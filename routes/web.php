@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KategoriSuplierController;
+use App\Http\Controllers\ProdukController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
@@ -43,6 +44,15 @@ Route::get('kategori-suplier/{id}/edit', [KategoriSuplierController::class, 'edi
 Route::get('kategori-suplier/{id}', [KategoriSuplierController::class, 'show'])->name('kategori.suplier.show');
 Route::put('kategori-suplier/{id}', [KategoriSuplierController::class, 'update'])->name('kategori.suplier.update');
 Route::delete('kategori-suplier/{id}', [KategoriSuplierController::class, 'destroy'])->name('kategori.suplier.destroy');
+
+// Ketegori Produk
+Route::get('produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('produk/create', [ProdukController::class, 'create'])->name('produk.create');
+Route::post('produk', [ProdukController::class, 'store'])->name('produk.store');
+Route::get('produk/{id}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
+Route::get('produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+Route::put('produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
+Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
 
 Route::get('/', function () {
     Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
