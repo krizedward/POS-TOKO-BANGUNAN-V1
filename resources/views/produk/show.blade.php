@@ -14,7 +14,7 @@
       <small data-step="1" data-intro="Menampilkan tabel kategori">
         <i class="ace-icon fa fa-angle-double-right"></i>
         <!-- top menu &amp; navigation -->
-        index page
+        show page
       </small>
     </h1>
   </div><!-- /.page-header -->
@@ -24,21 +24,12 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <a href="{{ route('produk.create') }}" class="btn btn-app btn-primary btn-sm">
-        <i class="ace-icon fa fa-pencil-square-o bigger-200"></i>
-        Tambah
-      </a>
-
-      <a href="#" class="btn btn-app btn-light btn-sm">
-        <i class="ace-icon fa fa-print bigger-200"></i>
-        Print
-      </a>
     </div>
   </div>
 
   <div class="space"></div>
 
-  @include('layouts.table.index_produk')
+  @include('layouts.detail.show_produk')
 
   <div class="center">
     <br />

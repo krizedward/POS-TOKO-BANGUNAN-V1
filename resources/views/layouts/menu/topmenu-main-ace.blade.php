@@ -7,7 +7,7 @@
 
       <ul class="nav nav-list">
 
-        <li class="{{ Route::currentRouteName() === 'dashboard' ? 'active open' : '' }} hover">
+        <li class="{{ $menu === 'dashboard' ? 'active open' : '' }} hover">
           <a href="{{ route('dashboard') }}">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text"> Dashboard </span>
@@ -16,7 +16,7 @@
           <b class="arrow"></b>
         </li>
 
-        <li class="{{ Route::currentRouteName() === 'produk.index' ? 'active open' : '' }} hover">
+        <li class="{{ $menu === 'produk' ? 'active open' : '' }} hover">
           <a href="{{ route('produk.index') }}">
             <i class="menu-icon fa fa-desktop"></i>
             <span class="menu-text"> Monitor Produk </span>

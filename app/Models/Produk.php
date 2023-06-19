@@ -19,15 +19,25 @@ class Produk extends Model
     protected $primaryKey = 'id';
     protected $table = 'produk';
 
+    // protected $fillable = [
+    //     'nama_produk',
+    //     'deskripsi',
+    //     'harga',
+    //     'stok',
+    //     'stok_minimum',
+    //     'kategori',
+    //     'supplier',
+    //     'tanggal_pembelian_terakhir',
+    //     'tanggal_kadaluarsa',
+    // ];
+
     protected $fillable = [
-        'nama_produk',
-        'deskripsi',
-        'harga',
-        'stok',
-        'stok_minimum',
-        'kategori',
-        'supplier',
-        'tanggal_pembelian_terakhir',
-        'tanggal_kadaluarsa',
+      'kode_id',
+      'kode_nomor',
+      'nama',
+      'modal',
+      'jumlah',
+      'tanggal_masuk',
+      'slug',
     ];
 }

@@ -131,6 +131,38 @@
   
   <!-- inline scripts related to this page -->
   @stack('inline_scripts')
+
+  <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+  <script>
+    function deleteConfirmation() {
+      swal({
+        title: "Apakah Anda yakin?",
+        text: "Data yang dihapus tidak dapat dikembalikan!",
+        icon: "warning",
+        buttons: {
+          cancel: {
+            text: "Batal",
+            value: false,
+            visible: true,
+            className: "",
+            closeModal: true,
+          },
+          confirm: {
+            text: "Hapus",
+            value: true,
+            visible: true,
+            className: "btn-danger",
+            closeModal: true
+          }
+        },
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          document.getElementById('delete').submit();
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

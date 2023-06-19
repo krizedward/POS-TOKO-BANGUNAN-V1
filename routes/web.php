@@ -57,7 +57,8 @@ Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk
 Route::get('/', function () {
     Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
     // return view('kategori_produk.index');
-    return view('blank');
+    $menu = 'dashboard';
+    return view('blank', compact('menu'));
     // return view('owner.master_product_index');
     // return view('skull.dashboard');
     // return view('welcome');

@@ -1,6 +1,6 @@
-<form class="form-horizontal" action="{{ route('produk.store') }}" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" action="{{ route('produk.update', [$data[0]->id]) }}" method="post" enctype="multipart/form-data">
 	@csrf
-	@method('POST')
+	@method('PUT')
 
   <!-- jumlah -->
 	<!-- <div class="form-group">
@@ -16,7 +16,7 @@
       Nama
     </label>
 		<div class="col-sm-9">
-			<input type="text" name="nama" id="form-field-1" placeholder="Nama Barang.." class="col-xs-10 col-sm-5" />
+			<input type="text" name="nama" value="{{ $data[0]->nama }}" id="form-field-1" class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
@@ -26,7 +26,7 @@
       Modal 
     </label>
 		<div class="col-sm-9">
-			<input type="text" name="modal" id="form-field-1" placeholder="Modal Barang.." class="col-xs-10 col-sm-5" />
+			<input type="text" name="modal" value="{{ $data[0]->modal }}" id="form-field-1" placeholder="Modal Barang.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
@@ -36,18 +36,18 @@
       Jumlah 
     </label>
 		<div class="col-sm-9">
-			<input type="number" name="jumlah" min="0" id="form-field-1" placeholder="Jumlah Barang.." class="col-xs-10 col-sm-5" />
+			<input type="number" name="jumlah" value="{{ $data[0]->jumlah }}" min="0" id="form-field-1" placeholder="Jumlah Barang.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
   <!-- Tanggal Barang Masuk -->
 	<div class="form-group">
-	  <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
-	    Tanggal Barang Masuk
-	  </label>
-	  <div class="col-sm-9">
-	    <input type="date" name="tanggal_masuk" id="form-field-1" class="col-xs-10 col-sm-5" />
-	  </div>
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+      Tanggal Barang Masuk 
+    </label>
+		<div class="col-sm-9">
+			<input type="date" name="tanggal_masuk" value="{{ $data[0]->tanggal_masuk }}" id="form-field-1" class="col-xs-10 col-sm-5" />
+		</div>
 	</div>
 
   <!-- Harga Toko -->
