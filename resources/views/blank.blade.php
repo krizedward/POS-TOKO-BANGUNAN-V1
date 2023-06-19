@@ -24,6 +24,73 @@
 @endsection
 
 @section('main')
+  <!-- PAGE CONTENT BEGINS -->
+  <div id="main-widget-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-1">
+        
+        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="center">
+                <label class="pos-rel">
+                  <input type="checkbox" class="ace" />
+                  <span class="lbl"></span>
+                </label>
+              </td>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Harga Beli</th>
+              <th>Harga Jual</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center">
+                <label class="pos-rel">
+                  <input type="checkbox" class="ace" />
+                  <span class="lbl"></span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-2">
+        
+        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <td class="center">
+                <label class="pos-rel">
+                  <input type="checkbox" class="ace" />
+                  <span class="lbl"></span>
+                </label>
+              </td>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Harga Beli</th>
+              <th>Harga Jual</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center">
+                <label class="pos-rel">
+                  <input type="checkbox" class="ace" />
+                  <span class="lbl"></span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+	</div><!-- PAGE CONTENT ENDS -->
   <!-- membuat isi dari konten -->
 
   <div class="center">
