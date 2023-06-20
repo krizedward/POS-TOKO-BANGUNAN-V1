@@ -1,3 +1,4 @@
+<div data-step="3" data-intro="Langkah 3: data produk yang masuk akan tampil di tabel ini">
   <div class="table-header">
     Tabel Data Untuk Produk Barang Toko
   </div>
@@ -46,18 +47,15 @@
               <a href="{{ route('produk.edit',[$d->id]) }}">
                 <span class="label label-sm label-warning">Edit</span>
               </a>
-              <a href="{{ route('produk.destroy',[$d->id]) }}" 
-                onclick="event.preventDefault();
-                document.getElementById('delete').submit(); deleteData(event)"
-              >
+
+              <a href="#" onclick="hapusAlert(event)">
                 <span class="label label-sm label-danger">Delete</span>
               </a>
-              <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}"
-                method="POST" style="display: none;">
-                @method('DELETE')
-                @csrf
-              </form>
             </div>
+            <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}" method="POST" style="display: none;">
+              @method('DELETE')
+              @csrf
+            </form>
           </td>
         </tr>
         @endforeach
@@ -65,35 +63,24 @@
     </table>
   </div>
   <!-- membuat isi dari konten -->
-
-  <script>
-    function deleteData(event) {
-      event.preventDefault();
-      swal({
-        title: "Apakah Anda yakin?",
-        text: "Data yang dihapus tidak dapat dikembalikan!",
-        icon: "warning",
-        buttons: {
-          cancel: {
-            text: "Batal",
-            value: false,
-            visible: true,
-            className: "",
-            closeModal: true,
-          },
-          confirm: {
-            text: "Hapus",
-            value: true,
-            visible: true,
-            className: "btn-danger",
-            closeModal: true
-          }
-        },
-        dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          document.getElementById('delete').submit();
-        }
-      });
-    }
-  </script>
+</div>
+<script>
+  function hapusAlert(event) {
+    event.preventDefault();
+    Swal.fire({
+      title: 'Apa Anda Yakin?',
+      text: "Mengahapus kategori Akan Berakibat Kehilangan Data!",
+      type: 'warning',
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Iya, Hapus Data!',
+      dangerMode: true,
+    }).then((result) => {
+      if (result.value) {
+        document.getElementById('delete').submit();
+      }
+    })
+  }
+</script>

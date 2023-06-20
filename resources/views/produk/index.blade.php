@@ -11,7 +11,8 @@
   <div class="page-header">
     <h1>
       Produk
-      <small data-step="1" data-intro="Menampilkan tabel kategori">
+      <small data-step="1" 
+        data-intro="Langkah 1: Halaman index form Produk Barang">
         <i class="ace-icon fa fa-angle-double-right"></i>
         <!-- top menu &amp; navigation -->
         index page
@@ -24,15 +25,16 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <a href="{{ route('produk.create') }}" class="btn btn-app btn-primary btn-sm">
+      <a href="{{ route('produk.create') }}" class="btn btn-app btn-primary btn-sm"
+      data-step="2" data-intro="Langkah 2: Pilih tombol untuk tambah produk">
         <i class="ace-icon fa fa-pencil-square-o bigger-200"></i>
         Tambah
       </a>
 
-      <a href="#" class="btn btn-app btn-light btn-sm">
+      <!-- <a href="#" class="btn btn-app btn-light btn-sm">
         <i class="ace-icon fa fa-print bigger-200"></i>
         Print
-      </a>
+      </a> -->
     </div>
   </div>
 
