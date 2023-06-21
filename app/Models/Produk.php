@@ -35,9 +35,29 @@ class Produk extends Model
       'kode_id',
       'kode_nomor',
       'nama',
-      'modal',
-      'jumlah',
-      'tanggal_masuk',
+      'deskripsi',
       'slug',
+      'kategori_id',
     ];
+
+    public function kategori()
+    {
+        // return $this->hasOne('App\Models\Talent','user_id');
+        // return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
+        return $this->belongsTo('App\Models\KategoriProduk');
+    }
+
+    public function harga_umum()
+    {
+        // return $this->hasOne('App\Models\Talent','user_id');
+        // return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
+        return $this->hasOne('App\Models\ProdukHargaUmum', 'id');
+    }
+
+    // public function kategori()
+    // {
+    //     // return $this->hasOne('App\Models\Talent','user_id');
+    //     return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
+    //     // return $this->belongsTo(Talent::class);
+    // }
 }

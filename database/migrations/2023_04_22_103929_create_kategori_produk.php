@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('kategori_produk', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kode_id')->nullable(); // untuk kode [GT]
-            $table->string('kode_nomor')->nullable(); // untuk nomor [str_pad(mt_rand(1,99999), 5, '0', STR_PAD_LEFT);]
             $table->string('nama')->nullable(); // untuk nama kategori
             $table->string('slug')->nullable(); // untuk nama url 
-            $table->text('deskripsi')->nullable(); // untuk penjelasan detail kategori
             $table->timestamps();
         });
     }

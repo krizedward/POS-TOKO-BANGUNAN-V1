@@ -10,40 +10,40 @@
 		</div>
 	</div> -->
 
-	<!-- Nama Barang -->
+	<!-- Nama Produk -->
 	<div class="form-group">
 		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
       Nama
     </label>
 		<div class="col-sm-9">
-			<input type="text" name="nama" id="form-field-1" placeholder="Nama Barang.." class="col-xs-10 col-sm-5" />
+			<input type="text" name="nama" id="form-field-1" placeholder="Nama Produk.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
-  <!-- Modal Barang -->
+  <!-- Modal Produk -->
 	<div class="form-group">
 		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
       Modal 
     </label>
 		<div class="col-sm-9">
-			<input type="text" name="modal" id="form-field-1" placeholder="Modal Barang.." class="col-xs-10 col-sm-5" />
+			<input type="text" name="modal" id="form-field-1" placeholder="Modal Produk.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
-  <!-- Jumlah Barang -->
+  <!-- Jumlah Produk -->
 	<div class="form-group">
 		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
       Jumlah 
     </label>
 		<div class="col-sm-9">
-			<input type="number" name="jumlah" min="0" id="form-field-1" placeholder="Jumlah Barang.." class="col-xs-10 col-sm-5" />
+			<input type="number" name="jumlah" min="0" id="form-field-1" placeholder="Jumlah Produk.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div>
 
-  <!-- Tanggal Barang Masuk -->
+  <!-- Tanggal Produk Masuk -->
 	<div class="form-group">
 	  <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
-	    Tanggal Barang Masuk
+	    Tanggal Harga Terkini
 	  </label>
 	  <div class="col-sm-9">
 	    <input type="date" name="tanggal_masuk" id="form-field-1" class="col-xs-10 col-sm-5" />
@@ -71,7 +71,7 @@
   <!-- <div class="form-group">
 		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nama </label>
 		<div class="col-sm-9">
-			<input type="text" name="nama_produk" id="form-field-1" placeholder="Nama Barang.." class="col-xs-10 col-sm-5" />
+			<input type="text" name="nama_produk" id="form-field-1" placeholder="Nama Produk.." class="col-xs-10 col-sm-5" />
 		</div>
 	</div> -->
 	<!-- copy -->
@@ -88,6 +88,11 @@
 				<i class="ace-icon fa fa-undo bigger-110"></i>
 				Reset
 			</button>
+			&nbsp; &nbsp; &nbsp;
+			<a href="{{ route('produk.index') }}" class="btn btn-warning" type="reset">
+				<i class="ace-icon fa fa-arrow-left  bigger-110"></i>
+				Kembali
+			</a>
 		</div>
 	</div>
 </form>

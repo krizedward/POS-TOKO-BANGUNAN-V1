@@ -33,10 +33,10 @@ class KategoriProdukFactory extends Factory
         return [
             //
             'kode_id' => $kodeId,
-            'kode_nomor' => $kodeNomor,
+            // 'kode_nomor' => $kodeNomor,
             'nama' => $nama2,
             'slug' => $slug1,
-            'deskripsi' => $desc1,
+            // 'deskripsi' => $desc1,
         ];
     }
 }

@@ -25,7 +25,7 @@
 
 @section('main')
   <!-- PAGE CONTENT BEGINS -->
-  <div id="main-widget-container">
+  <!-- <div id="main-widget-container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-1">
         
@@ -90,7 +90,87 @@
         </table>
       </div>
     </div>
-	</div><!-- PAGE CONTENT ENDS -->
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="widget-box">
+          <div class="widget-header widget-header-flat">
+            <h4 class="widget-title smaller">
+              <i class="ace-icon fa fa-quote-left smaller-80"></i>
+              Detail Barang
+            </h4>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main">
+              <h1>sidebar</h1>
+            </div>
+          </div>
+        </div>         
+      </div>
+
+      <div class="col-sm-8">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                              <h4 class="widget-title smaller">Definition List</h4>
+                              <div class="widget-toolbar">
+                                <label>
+                                  <small class="green">
+                                    <b>Horizontal</b>
+                                  </small>
+                                  <input id="id-check-horizontal" type="checkbox" class="ace ace-switch ace-switch-6" />
+                                  <span class="lbl middle"></span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="widget-body">
+                              <div class="widget-main">
+                                <code class="pull-right" id="dt-list-code">&lt;dl&gt;</code>
+                                <dl id="dt-list-1">
+                                  <dt>Description lists</dt>
+                                  <dd>A description list is perfect for defining terms.</dd>
+                                  <dt>Euismod</dt>
+                                  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                                  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                                  <dt>Malesuada porta</dt>
+                                  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                                  <dt>Felis euismod semper eget lacinia</dt>
+                                  <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                                </dl>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="space-6"></div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="widget-box">
+                            <div class="widget-header widget-header-flat">
+                              <h4 class="smaller">
+                                <i class="ace-icon fa fa-code"></i>
+                                Code view
+                              </h4>
+                            </div>
+                            <div class="widget-body">
+                              <div class="widget-main">
+                                <pre class="prettyprint linenums">&lt;p class="muted"&gt;Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                  &lt;p class="text-warning"&gt;Etiam porta sem malesuada.&lt;/p&gt;
+                                  &lt;p class="text-error"&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
+                                  &lt;p class="text-info"&gt;Aenean eu leo quam.&lt;/p&gt;
+                                  &lt;p class="text-success"&gt;Duis mollis.&lt;/p&gt;</pre>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      </div>
+
+    </div>
+	</div> -->
+  
+  <!-- PAGE CONTENT ENDS -->
   <!-- membuat isi dari konten -->
 
   <div class="center">

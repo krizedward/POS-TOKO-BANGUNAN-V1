@@ -88,6 +88,11 @@
 				<i class="ace-icon fa fa-undo bigger-110"></i>
 				Reset
 			</button>
+			&nbsp; &nbsp; &nbsp;
+			<a href="{{ route('produk.index') }}" class="btn btn-warning" type="reset">
+				<i class="ace-icon fa fa-arrow-left  bigger-110"></i>
+				Kembali
+			</a>
 		</div>
 	</div>
 </form>

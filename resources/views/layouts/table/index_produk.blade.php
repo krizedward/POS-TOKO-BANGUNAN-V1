@@ -13,7 +13,7 @@
           <th>Nama Barang</th>
           <th>Modal</th>
           <th>Satuan</th>
-          <th>Tanggal</th>
+          <th>Tanggal (Untuk Harga)</th>
           <th>Harga Toko</th>
           <th>Harga Jual Eceran</th>
           <th>Harga Lusin</th>
@@ -30,12 +30,14 @@
             {{$no++}}
           </td>
           <td>{{ $d->nama }}</td>
-          <td>Rp. {{ number_format ($d->modal) }}</td>
-          <td>Duz</td>
-          <td>{{ $d->tanggal_masuk }}</td>
-          <td>Rp. {{ number_format ($d->modal) }}</td>
-          <td>Rp. {{ number_format ($d->modal) }}</td>
-          <td>Rp. {{ number_format ($d->modal) }}</td>
+          <td>Rp. {{ number_format ($d->harga_umum->harga_modal) }}</td>
+          <td>{{ $d->harga_umum->stok->satuan->nama }}</td>
+          <td>23 Juni 2023</td>
+          
+          <td>Rp. {{ number_format ($d->harga_umum->harga_jual) }}</td>
+          <td>0</td>
+          <td>0</td>
+          <!-- <td>Rp. {{ number_format ($d->modal) }}</td> -->
           <!-- <td class="hidden-480">
                 <span class="label label-sm label-info">Tersedia</span>
             </td> -->

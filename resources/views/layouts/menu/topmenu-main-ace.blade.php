@@ -25,14 +25,15 @@
           <b class="arrow"></b>
         </li>
 
-        <li class="#">
+        <!-- <li class="hover">
           <a href="#">
-            <i class="menu-icon fa fa-users"></i>
-            <span class="menu-text"> Langganan </span>
+            <i class="menu-icon fa fa-desktop"></i>
+            <span class="menu-text"> Monitor Produk </span>
           </a>
 
           <b class="arrow"></b>
-        </li>
+        </li> -->
+        
 
         <!-- <li class="{{ Route::currentRouteName() === 'kategori.produk.index' ? 'active open' : '' }} hover">
           <a href="{{ route('kategori.produk.index') }}">

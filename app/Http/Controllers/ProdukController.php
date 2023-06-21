@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\ProdukHargaUmum;
+use App\Models\ProdukStok;
 use App\Models\KategoriProduk;
 use Illuminate\Support\Str;
 
@@ -77,11 +79,18 @@ class ProdukController extends Controller
             // 'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
             // new
             'nama' => $request->nama,
-            'modal' => $request->modal,
-            'jumlah' => $request->jumlah,
+            'kategori_id' => 1,
             'tanggal_masuk' => $request->tanggal_masuk,
 	        ]);
 
+          ProdukStok::create([
+            'jumlah'=> $request->jumlah,
+          ]);
+
+          ProdukHargaUmum::create([
+            'harga_modal' => $request->modal,
+            // 'harga_jual',
+          ]);
 	        // kembali ke halaman
 	        // return redirect()->route('kategori.suplier.index')
 	        //                 ->with('success','Product created successfully.');
