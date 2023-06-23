@@ -173,6 +173,20 @@
   <!-- PAGE CONTENT ENDS -->
   <!-- membuat isi dari konten -->
 
+  <form action="{{ route('produk.gambar.store') }}" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="form-group">
+          <label for="gambar">Gambar</label>
+          <input type="file" class="form-control-file" id="gambar" name="gambar">
+          @error('gambar')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+      </div>
+      <button type="submit" class="btn btn-primary">Upload Gambar</button>
+  </form>
+
+  <!-- <img src="{{ asset('produk/1687480398_foto-dumy.jpg') }}" alt="Gambar"> -->
+
   <div class="center">
     <br />
     <br />

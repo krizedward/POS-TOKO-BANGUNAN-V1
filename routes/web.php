@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KategoriSuplierController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProdukGambarController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
@@ -53,6 +54,9 @@ Route::get('produk/{id}/edit', [ProdukController::class, 'edit'])->name('produk.
 Route::get('produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
 Route::put('produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
 Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
+
+//upload gambar
+Route::post('produk/gambar', [ProdukGambarController::class, 'store'])->name('produk.gambar.store');
 
 Route::get('/', function () {
     Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
