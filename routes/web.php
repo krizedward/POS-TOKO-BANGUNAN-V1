@@ -47,9 +47,9 @@ Route::put('kategori-suplier/{id}', [KategoriSuplierController::class, 'update']
 Route::delete('kategori-suplier/{id}', [KategoriSuplierController::class, 'destroy'])->name('kategori.suplier.destroy');
 
 // Ketegori Produk
-Route::get('produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('produk-baru', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('produk/create', [ProdukController::class, 'create'])->name('produk.create');
-Route::post('produk', [ProdukController::class, 'store'])->name('produk.store');
+Route::post('produk-baru', [ProdukController::class, 'store'])->name('produk.store');
 Route::get('produk/{id}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
 Route::get('produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
 Route::put('produk/{id}', [ProdukController::class, 'update'])->name('produk.update');
@@ -59,7 +59,7 @@ Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk
 Route::post('produk/gambar', [ProdukGambarController::class, 'store'])->name('produk.gambar.store');
 
 Route::get('/', function () {
-    Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
+    // Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
     // return view('kategori_produk.index');
     $menu = 'dashboard';
     return view('blank', compact('menu'));
