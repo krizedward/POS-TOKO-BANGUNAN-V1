@@ -14,8 +14,8 @@ class ProdukStok extends Model
     
     protected $fillable = [
       'produk_id',
-      'satuan_id',
       'jumlah',
+      'jenis',
     ];
 
     public function satuan()

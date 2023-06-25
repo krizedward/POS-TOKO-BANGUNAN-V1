@@ -47,11 +47,16 @@ class Produk extends Model
         return $this->belongsTo('App\Models\KategoriProduk');
     }
 
-    public function harga_umum()
+    public function satuan()
+    {
+        return $this->belongsTo('App\Models\ProdukSatuan','id');
+    }
+
+    public function stok()
     {
         // return $this->hasOne('App\Models\Talent','user_id');
         // return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
-        return $this->hasOne('App\Models\ProdukHargaUmum', 'id');
+        return $this->hasMany('App\Models\ProdukStok', 'produk_id');
     }
 
     // public function kategori()

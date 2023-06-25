@@ -38,8 +38,7 @@
           <td>{{ $d->kategori->nama }}</td>
           @foreach($stok as $stokItem)
           <td>{{ $stokItem->jumlah; }}</td>
-          @endforeach 
-          <!-- menampilkan one to many -->
+          @endforeach
           <td class="hidden-480">3,330</td>
           <td>Feb 12</td>
 

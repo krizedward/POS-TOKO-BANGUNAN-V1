@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             // CategoryProductTableSeeder::class,
             KategoriProdukTableSeeder::class,
             KategoriSuplierTableSeeder::class,
+            ProdukSatuanTableSeeder::class,
+            ProdukTableSeeder::class,
+            ProdukStokTableSeeder::class,
             // tambahkan seeder lainnya di sini jika ada
         ]);
     }
