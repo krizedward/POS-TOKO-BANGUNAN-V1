@@ -5,12 +5,12 @@
       <thead>
         <tr>
           <th>No</th>
-          <th>Nama Barang</th>
-          <th>Modal</th>
-          <th>Satuan</th>
-          <th>Tanggal (Untuk Harga)</th>
+          <th>Nama</th>
+          <th>Tanggal (Produk Datang)</th>
+          <th>Harga Modal</th>
+          <th>Harga Ecer</th>
           <th>Harga Toko</th>
-          <th>Harga Jual Eceran</th>
+          <th>Harga Lusin</th>
           <!-- <th>Harga Lusin</th> -->
           <th>Aksi</th>
         </tr>
@@ -22,7 +22,11 @@
         @endphp
         @foreach($data as $d)
         @php
-          $stok = $d->stok;
+        $stok = $d->stok;
+        $ecer = $d->ecer;
+        $modal = $d->modal;
+        $toko = $d->toko;
+        $lusin = $d->lusin;
         @endphp
         <tr>
           <td class="center">
@@ -34,36 +38,56 @@
             </div>
           </td>
           <td>{{ $d->nama }}</td>
-          <td>{{ $d->satuan->nama }}</td>
           <td>{{ $d->kategori->nama }}</td>
-          @foreach($stok as $stokItem)
-          <td>{{ $stokItem->jumlah; }}</td>
-          @endforeach 
+          @foreach($modal as $modalItem)
+          <td>
+            Rp. {{ number_format ($modalItem->harga) }}
+          </td>
+          @endforeach
+          @foreach($ecer as $ecerItem)
+          <td>
+            Rp. {{ number_format ($ecerItem->harga) }}
+          </td>
+          @endforeach
+          @foreach($toko as $tokoItem)
+          <td>
+            Rp. {{ number_format ($tokoItem->harga) }}
+          </td>
+          @endforeach
+          @foreach($lusin as $lusinItem)
+          <td>
+            Rp. {{ number_format ($lusinItem->harga) }}
+          </td>
+          @endforeach
           <!-- menampilkan one to many -->
-          <td class="hidden-480">3,330</td>
+          <!-- <td class="hidden-480">3,330</td>
           <td>Feb 12</td>
 
           <td class="hidden-480">
             <span class="label label-sm label-warning">Expiring</span>
-          </td>
+          </td> -->
 
           <td>
             <div class="hidden-sm hidden-xs btn-group">
-              <button class="btn btn-xs btn-success">
+              <!-- <button class="btn btn-xs btn-success">
                 <i class="ace-icon fa fa-check bigger-120"></i>
-              </button>
+              </button> -->
 
-              <button class="btn btn-xs btn-info">
+              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info">
+                <i class="ace-icon fa fa-eye bigger-120"></i>
+              </a>
+
+              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning">
                 <i class="ace-icon fa fa-pencil bigger-120"></i>
-              </button>
+              </a>
 
-              <button class="btn btn-xs btn-danger">
+              <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger">
                 <i class="ace-icon fa fa-trash-o bigger-120"></i>
-              </button>
-
-              <button class="btn btn-xs btn-warning">
-                <i class="ace-icon fa fa-flag bigger-120"></i>
-              </button>
+              </a>
+              <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}" method="POST" style="display: none;">
+                @method('DELETE')
+                @csrf
+              </form>
             </div>
 
             <div class="hidden-md hidden-lg">
@@ -75,7 +99,7 @@
                 <ul
                   class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
                   <li>
-                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                    <a href="{{ route('produk.show',[$d->id]) }}" class="tooltip-info" data-rel="tooltip" title="View">
                       <span class="blue">
                         <i class="ace-icon fa fa-search-plus bigger-120"></i>
                       </span>
@@ -83,7 +107,8 @@
                   </li>
 
                   <li>
-                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                    <a href="{{ route('produk.edit',[$d->id]) }}" class="tooltip-success" data-rel="tooltip"
+                      title="Edit">
                       <span class="green">
                         <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
                       </span>
@@ -91,11 +116,16 @@
                   </li>
 
                   <li>
-                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                    <a href="#" onclick="hapusAlert(event)" class="tooltip-error" data-rel="tooltip" title="Delete">
                       <span class="red">
                         <i class="ace-icon fa fa-trash-o bigger-120"></i>
                       </span>
                     </a>
+                    <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}" method="POST"
+                      style="display: none;">
+                      @method('DELETE')
+                      @csrf
+                    </form>
                   </li>
                 </ul>
               </div>
@@ -109,18 +139,8 @@
               <div class="row">
                 <div class="col-xs-12 col-sm-2">
                   <div class="text-center">
-                    <img height="150" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar"
-                      src="assets/images/avatars/profile-pic.jpg" />
-                    <br />
-                    <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-                      <div class="inline position-relative">
-                        <a class="user-title-label" href="#">
-                          <i class="ace-icon fa fa-circle light-green"></i>
-                          &nbsp;
-                          <span class="white">Alex M. Doe</span>
-                        </a>
-                      </div>
-                    </div>
+                    <img height="150" class="thumbnail inline no-margin-bottom" alt="produk-foto"
+                      src="{{ $d->gambar->path ?? 'no-image.jpg' }}" />
                   </div>
                 </div>
 
@@ -129,86 +149,104 @@
 
                   <div class="profile-user-info profile-user-info-striped">
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Username </div>
+                      <div class="profile-info-name"> Nama Produk </div>
 
                       <div class="profile-info-value">
-                        <span>alexdoe</span>
+                        <span>{{ $d->nama }}</span>
                       </div>
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Location </div>
+                      <div class="profile-info-name"> Satuan Produk </div>
 
                       <div class="profile-info-value">
-                        <i class="fa fa-map-marker light-orange bigger-110"></i>
-                        <span>Netherlands, Amsterdam</span>
+                        <span>{{ $d->satuan->nama }}</span>
                       </div>
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Age </div>
+                      <div class="profile-info-name"> P. Kategori </div>
 
                       <div class="profile-info-value">
-                        <span>38</span>
+                        <span>{{ $d->kategori->nama }}</span>
                       </div>
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Joined </div>
+                      <div class="profile-info-name"> Stok Produk </div>
 
                       <div class="profile-info-value">
-                        <span>2010/06/20</span>
+                        <span>
+                          @foreach($stok as $stokItem)
+                          {{ $stokItem->jumlah; }}
+                          @endforeach
+                        </span>
                       </div>
                     </div>
 
-                    <div class="profile-info-row">
-                      <div class="profile-info-name"> Last Online </div>
-
-                      <div class="profile-info-value">
-                        <span>3 hours ago</span>
-                      </div>
-                    </div>
-
-                    <div class="profile-info-row">
-                      <div class="profile-info-name"> About Me </div>
-
-                      <div class="profile-info-value">
-                        <span>Bio</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-3">
                   <div class="space visible-xs"></div>
-                  <h4 class="header blue lighter less-margin">Send a message to Alex</h4>
+                  <h4 class="header blue lighter less-margin">Update Foto Produk</h4>
 
                   <div class="space-6"></div>
 
-                  <form>
-                    <fieldset>
-                      <textarea class="width-100" resize="none" placeholder="Type something…"></textarea>
-                    </fieldset>
+                  <form id="form2" action="{{ route('produk.gambar.update',[$d->id]) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="file" class="form-control-file" id="gambar" name="gambar">
 
                     <div class="hr hr-dotted"></div>
 
                     <div class="clearfix">
-                      <label class="pull-left">
-                        <input type="checkbox" class="ace" />
-                        <span class="lbl"> Email me a copy</span>
-                      </label>
-
-                      <button class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+                      <button class="pull-right btn btn-sm btn-primary btn-white btn-round" type="submit">
                         Submit
                         <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
                       </button>
                     </div>
                   </form>
+
+                  <!-- <form id="form2" action="{{ route('produk.gambar.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Gambar</label>
+                      <div class="col-sm-9">
+                        <input type="file" class="form-control-file" id="gambar" name="gambar">
+                        @error('gambar')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload Gambar</button>
+                  </form> -->
                 </div>
               </div>
             </div>
           </td>
         </tr>
+        <script>
+          function hapusAlert(event) {
+            event.preventDefault();
+            Swal.fire({
+              title: 'Apa Anda Yakin?',
+              text: "Mengahapus kategori Akan Berakibat Kehilangan Data!",
+              type: 'warning',
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Iya, Hapus Data!',
+              dangerMode: true,
+            }).then((result) => {
+              if (result.value) {
+                document.getElementById('delete').submit();
+              }
+            })
+          }
+        </script>
         @endforeach
       </tbody>
     </table>
@@ -327,6 +365,7 @@
         </tbody>
       </table>
     </div>
+
   </div>
 </div>
 

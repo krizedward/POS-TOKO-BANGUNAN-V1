@@ -38,6 +38,7 @@ class Produk extends Model
       'deskripsi',
       'slug',
       'kategori_id',
+      'satuan_id',
     ];
 
     public function kategori()
@@ -49,7 +50,7 @@ class Produk extends Model
 
     public function satuan()
     {
-        return $this->belongsTo('App\Models\ProdukSatuan','id');
+        return $this->belongsTo('App\Models\ProdukSatuan');
     }
 
     public function stok()
@@ -57,6 +58,33 @@ class Produk extends Model
         // return $this->hasOne('App\Models\Talent','user_id');
         // return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
         return $this->hasMany('App\Models\ProdukStok', 'produk_id');
+    }
+
+    public function ecer()
+    {
+        // return $this->hasOne('App\Models\Talent','user_id');
+        // return $this->hasOne('App\Models\KategoriProduk', 'kategori_id');
+        return $this->hasMany('App\Models\ProdukHargaEcer', 'produk_id');
+    }
+
+    public function modal()
+    {
+        return $this->hasMany('App\Models\ProdukHargaModal', 'produk_id');
+    }
+
+    public function toko()
+    {
+        return $this->hasMany('App\Models\ProdukHargaToko', 'produk_id');
+    }
+
+    public function lusin()
+    {
+        return $this->hasMany('App\Models\ProdukHargaLusin', 'produk_id');
+    }
+
+    public function gambar()
+    {
+        return $this->hasOne('App\Models\ProdukGambar', 'produk_id');
     }
 
     // public function kategori()

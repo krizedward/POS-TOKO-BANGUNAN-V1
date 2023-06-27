@@ -57,6 +57,7 @@ Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk
 
 //upload gambar
 Route::post('produk/gambar', [ProdukGambarController::class, 'store'])->name('produk.gambar.store');
+Route::put('produk/gambar/{id}', [ProdukGambarController::class, 'update'])->name('produk.gambar.update');
 
 Route::get('/', function () {
     // Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);

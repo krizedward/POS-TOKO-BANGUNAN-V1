@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
-use App\Models\ProdukHargaUmum;
+use App\Models\ProdukHargaModal;
+use App\Models\ProdukHargaEcer;
+use App\Models\ProdukHargaToko;
+use App\Models\ProdukHargaLusin;
 use App\Models\ProdukStok;
+use App\Models\ProdukGambar;
 use App\Models\KategoriProduk;
 use Illuminate\Support\Str;
 
@@ -80,16 +84,45 @@ class ProdukController extends Controller
             // new
             'nama' => $request->nama,
             'kategori_id' => 1,
-            'tanggal_masuk' => $request->tanggal_masuk,
+            'satuan_id' => 1,
 	        ]);
 
+          $lastId = Produk::latest()->first()->id;
+
           ProdukStok::create([
+            'produk_id' => $lastId,
             'jumlah'=> $request->jumlah,
           ]);
 
-          ProdukHargaUmum::create([
-            'harga_modal' => $request->modal,
-            // 'harga_jual',
+          ProdukHargaModal::create([
+            'produk_id' => $lastId,
+            'harga'=> $request->modal,
+            'jumlah'=> 0,
+          ]);
+
+          ProdukHargaEcer::create([
+            'produk_id' => $lastId,
+            'harga' => 0,
+            'jumlah' => 0,
+            // 'tanggal_harga' => $request->,
+          ]);
+
+          ProdukHargaToko::create([
+            'produk_id' => $lastId,
+            'harga' => 0,
+            'jumlah' => 0,
+            // 'tanggal_harga' => $request->,
+          ]);
+
+          ProdukHargaLusin::create([
+            'produk_id' => $lastId,
+            'harga' => 0,
+            'jumlah' => 0,
+            // 'tanggal_harga' => $request->,
+          ]);
+          
+          ProdukGambar::create([
+            'produk_id' => $lastId,
           ]);
 	        // kembali ke halaman
 	        // return redirect()->route('kategori.suplier.index')

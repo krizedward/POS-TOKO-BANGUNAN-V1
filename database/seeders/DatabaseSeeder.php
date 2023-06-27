@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
             ProdukSatuanTableSeeder::class,
             ProdukTableSeeder::class,
             ProdukStokTableSeeder::class,
+            ProdukHargaEcerTableSeeder::class,
+            ProdukHargaModalTableSeeder::class,
+            ProdukHargaLusinTableSeeder::class,
+            ProdukHargaTokoTableSeeder::class,
             // tambahkan seeder lainnya di sini jika ada
         ]);
     }
