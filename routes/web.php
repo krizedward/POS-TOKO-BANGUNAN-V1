@@ -46,7 +46,7 @@ Route::get('kategori-suplier/{id}', [KategoriSuplierController::class, 'show'])-
 Route::put('kategori-suplier/{id}', [KategoriSuplierController::class, 'update'])->name('kategori.suplier.update');
 Route::delete('kategori-suplier/{id}', [KategoriSuplierController::class, 'destroy'])->name('kategori.suplier.destroy');
 
-// Ketegori Produk
+// Produk
 Route::get('produk-baru', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('produk/create', [ProdukController::class, 'create'])->name('produk.create');
 Route::post('produk-baru', [ProdukController::class, 'store'])->name('produk.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KategoriProduk;
+use App\Models\KategoriProdukDetail;
 use Illuminate\Support\Str;
 
 use Illuminate\Http\RedirectResponse;
@@ -17,9 +18,16 @@ class KategoriProdukController extends Controller
     { // menampilkan data yang ada di kategori_produk
       try {
       	// testing data
-      	$data = KategoriProduk::all();
+      	$data = KategoriProdukDetail::all();
+				$menu = 'kategori-produk';
       	// dd($index);
-      	return view('kategori_produk.index', compact('data'));
+      	return 
+				view('kategori_produk.index', 
+					compact(
+						'data',
+						'menu'
+					)
+				);
       	// return view('skull.admin.kategori_produk_index', compact('data'));
       } catch (\Exception $e) {
 				// Tangani exception yang terjadi

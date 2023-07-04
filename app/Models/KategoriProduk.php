@@ -27,6 +27,11 @@ class KategoriProduk extends Model
 		'deskripsi',
     ];
 
+    public function detail()
+    {
+        return $this->hasMany('App\Models\KategoriProdukDetail', 'kategori_id');
+    }
+
     // public function products()
     // {
     //     return $this->hasMany(Product::class);

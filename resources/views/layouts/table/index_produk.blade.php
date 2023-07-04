@@ -1,7 +1,9 @@
 <!-- PAGE CONTENT BEGINS -->
 <div class="row">
   <div class="col-xs-12">
-    <table id="simple-table" class="table  table-bordered table-hover">
+    <table id="simple-table" class="table  table-bordered table-hover"
+      data-step="3" 
+      data-intro="Langkah 3: tabel ini untuk menampilkan data produk">
       <thead>
         <tr>
           <th>No</th>
@@ -73,15 +75,18 @@
                 <i class="ace-icon fa fa-check bigger-120"></i>
               </button> -->
 
-              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info">
+              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info"
+                data-step="4" data-intro="Langkah 4: Pilih tombol untuk detail produk">
                 <i class="ace-icon fa fa-eye bigger-120"></i>
               </a>
 
-              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning">
+              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning"
+                data-step="5" data-intro="Langkah 5: Pilih tombol untuk edit produk">
                 <i class="ace-icon fa fa-pencil bigger-120"></i>
               </a>
 
-              <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger">
+              <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger"
+                data-step="6" data-intro="Langkah 6: Pilih tombol untuk hapus produk">
                 <i class="ace-icon fa fa-trash-o bigger-120"></i>
               </a>
               <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}" method="POST" style="display: none;">
@@ -142,9 +147,9 @@
                     <img height="150" class="thumbnail inline no-margin-bottom" alt="produk-foto"
                       src="{{ $d->gambar->path ?? 'no-image.jpg' }}" />
                   </div>
-                </div>
+                </div><!-- gambar produk -->
 
-                <div class="col-xs-12 col-sm-7">
+                <div class="col-xs-12 col-sm-3">
                   <div class="space visible-xs"></div>
 
                   <div class="profile-user-info profile-user-info-striped">
@@ -185,7 +190,38 @@
                     </div>
 
                   </div>
-                </div>
+                </div><!-- tabel kiri -->
+
+                <div class="col-xs-12 col-sm-4">
+                  <div class="space visible-xs"></div>
+
+                  <div class="profile-user-info profile-user-info-striped">
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Suplier Produk </div>
+
+                      <div class="profile-info-value">
+                        <span>Tidak Ada Data</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Sales Produk </div>
+
+                      <div class="profile-info-value">
+                        <span>Tidak Ada Data</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Kode Produk </div>
+
+                      <div class="profile-info-value">
+                        <span>{{ $d->kode_id }}-{{ $d->kode_nomor}}</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div><!-- tabel kanan -->
 
                 <div class="col-xs-12 col-sm-3">
                   <div class="space visible-xs"></div>
