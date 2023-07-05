@@ -8,7 +8,7 @@
         <tr>
           <th>No</th>
           <th>Nama</th>
-          <th>Kategori Produk</th>
+          <th>Tanggal (Produk Datang)</th>
           <th>Harga Modal</th>
           <th>Harga Ecer</th>
           <th>Harga Toko</th>

@@ -1,123 +1,172 @@
 <!-- fitur untuk membuat tanda show lebih sederhana -->
-  <div class="row">
-    <div class="col-sm-4">
-                    <div class="widget-box">
-											<div class="widget-header widget-header-flat">
-												<h4 class="widget-title smaller">
-													<i class="ace-icon fa fa-quote-left smaller-80"></i>
-													Detail Barang
-												</h4>
-											</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="widget-box">
+      <div class="widget-header widget-header-flat">
+        <h4 class="widget-title smaller">
+          <i class="ace-icon fa fa-quote-left smaller-80"></i>
+          Detail Barang
+        </h4>
+      </div>
 
-											<div class="widget-body">
-												<div class="widget-main">
+      <div class="widget-body">
+        <div class="widget-main">
 
-													<div class="row">
-														<div class="col-xs-12">
-															<blockquote>
-																<p class="lighter line-height-125">
-																	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-																</p>
+          <div class="row">
+            <div class="col-xs-12">
+              <blockquote>
+                <p class="lighter line-height-125">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                </p>
 
-																<small>
-																	Someone famous
-																	<cite title="Source Title">Source Title</cite>
-																</small>
-															</blockquote>
-														</div>
-													</div>
+                <small>
+                  Someone famous
+                  <cite title="Source Title">Source Title</cite>
+                </small>
+              </blockquote>
+            </div>
+          </div>
 
-													<hr />
-													<address>
-														<strong>Twitter, Inc.</strong>
+          <hr />
+          <address>
+            <strong>Twitter, Inc.</strong>
 
-														<br />
-														795 Folsom Ave, Suite 600
-														<br />
-														San Francisco, CA 94107
-														<br />
-														<abbr title="Phone">P:</abbr>
-														(123) 456-7890
-													</address>
+            <br />
+            795 Folsom Ave, Suite 600
+            <br />
+            San Francisco, CA 94107
+            <br />
+            <abbr title="Phone">P:</abbr>
+            (123) 456-7890
+          </address>
 
-													<address>
-														<strong>Full Name</strong>
+          <address>
+            <strong>Full Name</strong>
 
-														<br />
-														<a href="mailto:#">first.last@example.com</a>
-													</address>
-												</div>
-											</div>
-										</div>
+            <br />
+            <a href="mailto:#">first.last@example.com</a>
+          </address>
+        </div>
+      </div>
     </div>
-
-    <div class="col-sm-8">
-                    <div class="row">
-											<div class="col-xs-12">
-												<div class="widget-box">
-													<div class="widget-header widget-header-flat">
-														<h4 class="widget-title smaller">Definition List</h4>
-
-														<div class="widget-toolbar">
-															<label>
-																<small class="green">
-																	<b>Horizontal</b>
-																</small>
-
-																<input id="id-check-horizontal" type="checkbox" class="ace ace-switch ace-switch-6" />
-																<span class="lbl middle"></span>
-															</label>
-														</div>
-													</div>
-
-													<div class="widget-body">
-														<div class="widget-main">
-															<code class="pull-right" id="dt-list-code">&lt;dl&gt;</code>
-
-															<dl id="dt-list-1">
-																<dt>Description lists</dt>
-																<dd>A description list is perfect for defining terms.</dd>
-																<dt>Euismod</dt>
-																<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-																<dd>Donec id elit non mi porta gravida at eget metus.</dd>
-																<dt>Malesuada porta</dt>
-																<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-																<dt>Felis euismod semper eget lacinia</dt>
-																<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-															</dl>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<div class="space-6"></div>
-
-										<div class="row">
-											<div class="col-xs-12">
-												<div class="widget-box">
-													<div class="widget-header widget-header-flat">
-														<h4 class="smaller">
-															<i class="ace-icon fa fa-code"></i>
-															Code view
-														</h4>
-													</div>
-
-													<div class="widget-body">
-														<div class="widget-main">
-															<pre class="prettyprint linenums">&lt;p class="muted"&gt;Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
-                                &lt;p class="text-warning"&gt;Etiam porta sem malesuada.&lt;/p&gt;
-                                &lt;p class="text-error"&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
-                                &lt;p class="text-info"&gt;Aenean eu leo quam.&lt;/p&gt;
-                                &lt;p class="text-success"&gt;Duis mollis.&lt;/p&gt;</pre>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-    </div>
-
   </div>
+  <!-- kiri -->
+  <div class="col-sm-8">
+    <!-- <div class="row">
+      <div class="col-xs-12">
+        <div class="widget-box">
+          <div class="widget-header widget-header-flat">
+            <h4 class="widget-title smaller">Definition List</h4>
+            <div class="widget-toolbar">
+              <label>
+                <small class="green">
+                  <b>Horizontal</b>
+                </small>
+
+                <input id="id-check-horizontal" type="checkbox" class="ace ace-switch ace-switch-6" />
+                <span class="lbl middle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main">
+              <code class="pull-right" id="dt-list-code">&lt;dl&gt;</code>
+              <dl id="dt-list-1">
+                <dt>Description lists</dt>
+                <dd>A description list is perfect for defining terms.</dd>
+                <dt>Euismod</dt>
+                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                <dt>Malesuada porta</dt>
+                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                <dt>Felis euismod semper eget lacinia</dt>
+                <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                  sit amet risus.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="space-6"></div> -->
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="widget-box">
+          <div class="widget-header widget-header-flat">
+            <h4 class="smaller">
+              <!-- <i class="ace-icon fa fa-code"></i> -->
+              Form
+            </h4>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main">
+              <!-- body -->
+              <div>
+															<label for="form-field-select-1">Default</label>
+															<select class="form-control" id="form-field-select-1">
+																<option value=""></option>
+																<option value="AL">Alabama</option>
+																<option value="AK">Alaska</option>
+																<option value="AZ">Arizona</option>
+																<option value="AR">Arkansas</option>
+																<option value="CA">California</option>
+																<option value="CO">Colorado</option>
+																<option value="CT">Connecticut</option>
+																<option value="DE">Delaware</option>
+																<option value="FL">Florida</option>
+																<option value="GA">Georgia</option>
+																<option value="HI">Hawaii</option>
+																<option value="ID">Idaho</option>
+																<option value="IL">Illinois</option>
+																<option value="IN">Indiana</option>
+																<option value="IA">Iowa</option>
+																<option value="KS">Kansas</option>
+																<option value="KY">Kentucky</option>
+																<option value="LA">Louisiana</option>
+																<option value="ME">Maine</option>
+																<option value="MD">Maryland</option>
+																<option value="MA">Massachusetts</option>
+																<option value="MI">Michigan</option>
+																<option value="MN">Minnesota</option>
+																<option value="MS">Mississippi</option>
+																<option value="MO">Missouri</option>
+																<option value="MT">Montana</option>
+																<option value="NE">Nebraska</option>
+																<option value="NV">Nevada</option>
+																<option value="NH">New Hampshire</option>
+																<option value="NJ">New Jersey</option>
+																<option value="NM">New Mexico</option>
+																<option value="NY">New York</option>
+																<option value="NC">North Carolina</option>
+																<option value="ND">North Dakota</option>
+																<option value="OH">Ohio</option>
+																<option value="OK">Oklahoma</option>
+																<option value="OR">Oregon</option>
+																<option value="PA">Pennsylvania</option>
+																<option value="RI">Rhode Island</option>
+																<option value="SC">South Carolina</option>
+																<option value="SD">South Dakota</option>
+																<option value="TN">Tennessee</option>
+																<option value="TX">Texas</option>
+																<option value="UT">Utah</option>
+																<option value="VT">Vermont</option>
+																<option value="VA">Virginia</option>
+																<option value="WA">Washington</option>
+																<option value="WV">West Virginia</option>
+																<option value="WI">Wisconsin</option>
+																<option value="WY">Wyoming</option>
+															</select>
+							</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- kanan -->
+</div>
 
 @section('dokumentasi-1')
   <!-- fitur untuk membuat tanda show lebih sederhana -->
@@ -127,8 +176,7 @@
         <div>
           <span class="profile-picture">
             <!-- <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="{{ asset('assets/images/avatars/profile-pic.jpg') }}" /> -->
-            <img class="editable img-responsive" alt="Alex's Avatar"
-              src="{{ asset('foto-produk/foto-dumy.jpg') }}" />
+            <img class="editable img-responsive" alt="Alex's Avatar" src="{{ asset('foto-produk/foto-dumy.jpg') }}" />
           </span>
 
           <div class="space-4"></div>
@@ -159,11 +207,11 @@
                 </li>
 
                 <!-- <li>
-                                  <a href="#">
-                                    <i class="ace-icon fa fa-circle grey"></i>&nbsp;
-                                    <span class="grey">Kosong</span>
-                                  </a>
-                                </li> -->
+                                    <a href="#">
+                                      <i class="ace-icon fa fa-circle grey"></i>&nbsp;
+                                      <span class="grey">Kosong</span>
+                                    </a>
+                                  </li> -->
               </ul>
             </div>
           </div>
@@ -173,37 +221,37 @@
 
         <div class="profile-contact-info">
           <!-- <div class="profile-contact-links align-left">
-                            <a href="#" class="btn btn-link">
-                              <i class="ace-icon fa fa-plus-circle bigger-120 green"></i>
-                              Add as a friend
-                            </a>
+                              <a href="#" class="btn btn-link">
+                                <i class="ace-icon fa fa-plus-circle bigger-120 green"></i>
+                                Add as a friend
+                              </a>
 
-                            <a href="#" class="btn btn-link">
-                              <i class="ace-icon fa fa-envelope bigger-120 pink"></i>
-                              Send a message
-                            </a>
+                              <a href="#" class="btn btn-link">
+                                <i class="ace-icon fa fa-envelope bigger-120 pink"></i>
+                                Send a message
+                              </a>
 
-                            <a href="#" class="btn btn-link">
-                              <i class="ace-icon fa fa-globe bigger-125 blue"></i>
-                              www.alexdoe.com
-                            </a>
-                          </div>
+                              <a href="#" class="btn btn-link">
+                                <i class="ace-icon fa fa-globe bigger-125 blue"></i>
+                                www.alexdoe.com
+                              </a>
+                            </div>
 
-                          <div class="space-6"></div>
+                            <div class="space-6"></div>
 
-                          <div class="profile-social-links align-center">
-                            <a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-                              <i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
-                            </a>
+                            <div class="profile-social-links align-center">
+                              <a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
+                                <i class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
+                              </a>
 
-                            <a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-                              <i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
-                            </a>
+                              <a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
+                                <i class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
+                              </a>
 
-                            <a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-                              <i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
-                            </a>
-                          </div> -->
+                              <a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
+                                <i class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
+                              </a>
+                            </div> -->
         </div>
 
         <div class="hr hr12 dotted"></div>
@@ -230,46 +278,46 @@
       <div class="col-xs-12 col-sm-9">
         <div class="center">
           <!-- <span class="btn btn-app btn-sm btn-light no-hover">
-                            <span class="line-height-1 bigger-170 blue"> 1,411 </span>
+                              <span class="line-height-1 bigger-170 blue"> 1,411 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Views </span>
-                          </span>
+                              <br />
+                              <span class="line-height-1 smaller-90"> Views </span>
+                            </span>
 
-                          <span class="btn btn-app btn-sm btn-yellow no-hover">
-                            <span class="line-height-1 bigger-170"> 32 </span>
+                            <span class="btn btn-app btn-sm btn-yellow no-hover">
+                              <span class="line-height-1 bigger-170"> 32 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Followers </span>
-                          </span>
+                              <br />
+                              <span class="line-height-1 smaller-90"> Followers </span>
+                            </span>
 
-                          <span class="btn btn-app btn-sm btn-pink no-hover">
-                            <span class="line-height-1 bigger-170"> 4 </span>
+                            <span class="btn btn-app btn-sm btn-pink no-hover">
+                              <span class="line-height-1 bigger-170"> 4 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Projects </span>
-                          </span>
+                              <br />
+                              <span class="line-height-1 smaller-90"> Projects </span>
+                            </span>
 
-                          <span class="btn btn-app btn-sm btn-grey no-hover">
-                            <span class="line-height-1 bigger-170"> 23 </span>
+                            <span class="btn btn-app btn-sm btn-grey no-hover">
+                              <span class="line-height-1 bigger-170"> 23 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Reviews </span>
-                          </span>
+                              <br />
+                              <span class="line-height-1 smaller-90"> Reviews </span>
+                            </span>
 
-                          <span class="btn btn-app btn-sm btn-success no-hover">
-                            <span class="line-height-1 bigger-170"> 7 </span>
+                            <span class="btn btn-app btn-sm btn-success no-hover">
+                              <span class="line-height-1 bigger-170"> 7 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Albums </span>
-                          </span>
+                              <br />
+                              <span class="line-height-1 smaller-90"> Albums </span>
+                            </span>
 
-                          <span class="btn btn-app btn-sm btn-primary no-hover">
-                            <span class="line-height-1 bigger-170"> 55 </span>
+                            <span class="btn btn-app btn-sm btn-primary no-hover">
+                              <span class="line-height-1 bigger-170"> 55 </span>
 
-                            <br />
-                            <span class="line-height-1 smaller-90"> Contacts </span>
-                          </span> -->
+                              <br />
+                              <span class="line-height-1 smaller-90"> Contacts </span>
+                            </span> -->
         </div>
 
         <div class="space-12"></div>
@@ -292,311 +340,311 @@
           </div>
 
           <!-- <div class="profile-info-row">
-                            <div class="profile-info-name"> Jumlah Stok </div>
+                              <div class="profile-info-name"> Jumlah Stok </div>
 
-                            <div class="profile-info-value">
-                              <span class="editable" id="age">0</span>
+                              <div class="profile-info-value">
+                                <span class="editable" id="age">0</span>
+                              </div>
                             </div>
-                          </div>
 
-                          <div class="profile-info-row">
-                            <div class="profile-info-name"> Jumlah Terjual </div>
+                            <div class="profile-info-row">
+                              <div class="profile-info-name"> Jumlah Terjual </div>
 
-                            <div class="profile-info-value">
-                              <span class="editable" id="signup">1</span>
+                              <div class="profile-info-value">
+                                <span class="editable" id="signup">1</span>
+                              </div>
                             </div>
-                          </div>
 
-                          <div class="profile-info-row">
-                            <div class="profile-info-name"> Supplier </div>
+                            <div class="profile-info-row">
+                              <div class="profile-info-name"> Supplier </div>
 
-                            <div class="profile-info-value">
-                              <span class="editable" id="login">3 Toko</span>
+                              <div class="profile-info-value">
+                                <span class="editable" id="login">3 Toko</span>
+                              </div>
                             </div>
-                          </div>
 
-                          <div class="profile-info-row">
-                            <div class="profile-info-name"> Retur </div>
+                            <div class="profile-info-row">
+                              <div class="profile-info-name"> Retur </div>
 
-                            <div class="profile-info-value">
-                              <span class="editable" id="about">Tidak Ada</span>
-                            </div>
-                          </div> -->
+                              <div class="profile-info-value">
+                                <span class="editable" id="about">Tidak Ada</span>
+                              </div>
+                            </div> -->
         </div>
 
         <!-- <div class="space-20"></div>
 
-                        <div class="widget-box transparent">
-                          <div class="widget-header widget-header-small">
-                            <h4 class="widget-title blue smaller">
-                              <i class="ace-icon fa fa-rss orange"></i>
-                              Recent Activities
-                            </h4>
+                          <div class="widget-box transparent">
+                            <div class="widget-header widget-header-small">
+                              <h4 class="widget-title blue smaller">
+                                <i class="ace-icon fa fa-rss orange"></i>
+                                Recent Activities
+                              </h4>
 
-                            <div class="widget-toolbar action-buttons">
-                              <a href="#" data-action="reload">
-                                <i class="ace-icon fa fa-refresh blue"></i>
-                              </a>&nbsp;
-                              <a href="#" class="pink">
-                                <i class="ace-icon fa fa-trash-o"></i>
-                              </a>
+                              <div class="widget-toolbar action-buttons">
+                                <a href="#" data-action="reload">
+                                  <i class="ace-icon fa fa-refresh blue"></i>
+                                </a>&nbsp;
+                                <a href="#" class="pink">
+                                  <i class="ace-icon fa fa-trash-o"></i>
+                                </a>
+                              </div>
                             </div>
-                          </div>
 
-                          <div class="widget-body">
-                            <div class="widget-main padding-8">
-                              <div id="profile-feed-1" class="profile-feed">
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <img class="pull-left" alt="Alex Doe's avatar" src="assets/images/avatars/avatar5.png" />
-                                    <a class="user" href="#"> Alex Doe </a>
-                                    changed his profile photo.
-                                    <a href="#">Take a look</a>
+                            <div class="widget-body">
+                              <div class="widget-main padding-8">
+                                <div id="profile-feed-1" class="profile-feed">
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <img class="pull-left" alt="Alex Doe's avatar" src="assets/images/avatars/avatar5.png" />
+                                      <a class="user" href="#"> Alex Doe </a>
+                                      changed his profile photo.
+                                      <a href="#">Take a look</a>
 
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      an hour ago
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        an hour ago
+                                      </div>
+                                    </div>
+
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
+
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <img class="pull-left" alt="Susan Smith's avatar" src="assets/images/avatars/avatar1.png" />
+                                      <a class="user" href="#"> Susan Smith </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      is now friends with Alex Doe.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        2 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <img class="pull-left" alt="Susan Smith's avatar" src="assets/images/avatars/avatar1.png" />
-                                    <a class="user" href="#"> Susan Smith </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    is now friends with Alex Doe.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      2 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
+                                      joined
+                                      <a href="#">Country Music</a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      group.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        5 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
-                                    joined
-                                    <a href="#">Country Music</a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    group.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      5 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-picture-o btn-info no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
+                                      uploaded a new photo.
+                                      <a href="#">Take a look</a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        5 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-picture-o btn-info no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
-                                    uploaded a new photo.
-                                    <a href="#">Take a look</a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      5 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <img class="pull-left" alt="David Palms's avatar" src="assets/images/avatars/avatar4.png" />
+                                      <a class="user" href="#"> David Palms </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      left a comment on Alex's wall.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        8 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <img class="pull-left" alt="David Palms's avatar" src="assets/images/avatars/avatar4.png" />
-                                    <a class="user" href="#"> David Palms </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    left a comment on Alex's wall.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      8 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-pencil-square-o btn-pink no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
+                                      published a new blog post.
+                                      <a href="#">Read now</a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        11 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-pencil-square-o btn-pink no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
-                                    published a new blog post.
-                                    <a href="#">Read now</a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      11 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <img class="pull-left" alt="Alex Doe's avatar" src="assets/images/avatars/avatar5.png" />
+                                      <a class="user" href="#"> Alex Doe </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      upgraded his skills.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        12 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <img class="pull-left" alt="Alex Doe's avatar" src="assets/images/avatars/avatar5.png" />
-                                    <a class="user" href="#"> Alex Doe </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    upgraded his skills.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      12 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      logged in.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        12 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    logged in.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      12 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-power-off btn-inverse no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
+                                      logged out.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        16 hours ago
+                                      </div>
+                                    </div>
 
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-power-off btn-inverse no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    logged out.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      16 hours ago
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
                                     </div>
                                   </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                  <div class="profile-activity clearfix">
+                                    <div>
+                                      <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
+                                      <a class="user" href="#"> Alex Doe </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
-                                  </div>
-                                </div>
-
-                                <div class="profile-activity clearfix">
-                                  <div>
-                                    <i class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-                                    <a class="user" href="#"> Alex Doe </a>
-
-                                    logged in.
-                                    <div class="time">
-                                      <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                      16 hours ago
+                                      logged in.
+                                      <div class="time">
+                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
+                                        16 hours ago
+                                      </div>
                                     </div>
-                                  </div>
 
-                                  <div class="tools action-buttons">
-                                    <a href="#" class="blue">
-                                      <i class="ace-icon fa fa-pencil bigger-125"></i>
-                                    </a>
+                                    <div class="tools action-buttons">
+                                      <a href="#" class="blue">
+                                        <i class="ace-icon fa fa-pencil bigger-125"></i>
+                                      </a>
 
-                                    <a href="#" class="red">
-                                      <i class="ace-icon fa fa-times bigger-125"></i>
-                                    </a>
+                                      <a href="#" class="red">
+                                        <i class="ace-icon fa fa-times bigger-125"></i>
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="hr hr2 hr-double"></div>
+                          <div class="hr hr2 hr-double"></div>
 
-                        <div class="space-6"></div>
+                          <div class="space-6"></div>
 
-                        <div class="center">
-                          <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
-                            <i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
-                            <span class="bigger-110">View more activities</span>
+                          <div class="center">
+                            <button type="button" class="btn btn-sm btn-primary btn-white btn-round">
+                              <i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
+                              <span class="bigger-110">View more activities</span>
 
-                            <i class="icon-on-right ace-icon fa fa-arrow-right"></i>
-                          </button>
-                        </div> -->
+                              <i class="icon-on-right ace-icon fa fa-arrow-right"></i>
+                            </button>
+                          </div> -->
       </div>
     </div>
   </div>
@@ -1750,8 +1798,8 @@
       <div class="col-sm-offset-1 col-sm-10">
         <div class="well well-sm">
           <!-- -
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                          &nbsp; -->
+                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            &nbsp; -->
           <div class="inline middle blue bigger-110"> Your profile is 70% complete </div>
 
           &nbsp; &nbsp; &nbsp;
