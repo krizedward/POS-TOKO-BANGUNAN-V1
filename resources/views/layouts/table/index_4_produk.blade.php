@@ -1,14 +1,18 @@
 <!-- PAGE CONTENT BEGINS -->
-
 <div class="row">
   <div class="col-xs-12">
-    <table id="simple-table" class="table  table-bordered table-hover" data-step="3"
+    <table id="simple-table" class="table  table-bordered table-hover"
+      data-step="3" 
       data-intro="Langkah 3: tabel ini untuk menampilkan data produk">
       <thead>
         <tr>
           <th>No</th>
           <th>Nama</th>
+          <th>Kategori Produk</th>
           <th>Harga Modal</th>
+          <th>Harga Ecer</th>
+          <th>Harga Toko</th>
+          <th>Harga Lusin</th>
           <!-- <th>Harga Lusin</th> -->
           <th>Aksi</th>
         </tr>
@@ -36,12 +40,27 @@
             </div>
           </td>
           <td>{{ $d->nama }}</td>
+          <td>{{ $d->kategori->nama }}</td>
           @foreach($modal as $modalItem)
           <td>
             Rp. {{ number_format ($modalItem->harga) }}
           </td>
           @endforeach
-
+          @foreach($ecer as $ecerItem)
+          <td>
+            Rp. {{ number_format ($ecerItem->harga) }}
+          </td>
+          @endforeach
+          @foreach($toko as $tokoItem)
+          <td>
+            Rp. {{ number_format ($tokoItem->harga) }}
+          </td>
+          @endforeach
+          @foreach($lusin as $lusinItem)
+          <td>
+            Rp. {{ number_format ($lusinItem->harga) }}
+          </td>
+          @endforeach
           <!-- menampilkan one to many -->
           <!-- <td class="hidden-480">3,330</td>
           <td>Feb 12</td>
@@ -56,18 +75,18 @@
                 <i class="ace-icon fa fa-check bigger-120"></i>
               </button> -->
 
-              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info" data-step="4"
-                data-intro="Langkah 4: Pilih tombol untuk detail produk">
+              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info"
+                data-step="4" data-intro="Langkah 4: Pilih tombol untuk detail produk">
                 <i class="ace-icon fa fa-eye bigger-120"></i>
               </a>
 
-              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning" data-step="5"
-                data-intro="Langkah 5: Pilih tombol untuk edit produk">
+              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning"
+                data-step="5" data-intro="Langkah 5: Pilih tombol untuk edit produk">
                 <i class="ace-icon fa fa-pencil bigger-120"></i>
               </a>
 
-              <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger" data-step="6"
-                data-intro="Langkah 6: Pilih tombol untuk hapus produk">
+              <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger"
+                data-step="6" data-intro="Langkah 6: Pilih tombol untuk hapus produk">
                 <i class="ace-icon fa fa-trash-o bigger-120"></i>
               </a>
               <form id="delete" action="{{ route('produk.destroy',[$d->id]) }}" method="POST" style="display: none;">
@@ -135,36 +154,36 @@
 
                   <div class="profile-user-info profile-user-info-striped">
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Harga Ecer </div>
+                      <div class="profile-info-name"> Nama Produk </div>
 
                       <div class="profile-info-value">
-                        <span>
-                          @foreach($ecer as $ecerItem)
-                          Rp. {{ number_format ($ecerItem->harga) }}
-                          @endforeach
-                        </span>
+                        <span>{{ $d->nama }}</span>
                       </div>
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Harga Toko </div>
+                      <div class="profile-info-name"> Satuan Produk </div>
 
                       <div class="profile-info-value">
-                        <span>
-                          @foreach($toko as $tokoItem)
-                          Rp. {{ number_format ($tokoItem->harga) }}
-                          @endforeach
-                        </span>
+                        <span>{{ $d->satuan->nama }}</span>
                       </div>
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Harga Lusin </div>
+                      <div class="profile-info-name"> P. Kategori </div>
+
+                      <div class="profile-info-value">
+                        <span>{{ $d->kategori->nama }}</span>
+                      </div>
+                    </div>
+
+                    <div class="profile-info-row">
+                      <div class="profile-info-name"> Stok Produk </div>
 
                       <div class="profile-info-value">
                         <span>
-                          @foreach($lusin as $lusinItem)
-                          Rp. {{ number_format ($lusinItem->harga) }}
+                          @foreach($stok as $stokItem)
+                          {{ $stokItem->jumlah; }}
                           @endforeach
                         </span>
                       </div>
@@ -178,7 +197,7 @@
 
                   <div class="profile-user-info profile-user-info-striped">
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Jumlah </div>
+                      <div class="profile-info-name"> Suplier Produk </div>
 
                       <div class="profile-info-value">
                         <span>Tidak Ada Data</span>
@@ -186,7 +205,7 @@
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Satuan </div>
+                      <div class="profile-info-name"> Sales Produk </div>
 
                       <div class="profile-info-value">
                         <span>Tidak Ada Data</span>
@@ -194,10 +213,10 @@
                     </div>
 
                     <div class="profile-info-row">
-                      <div class="profile-info-name"> Kode </div>
+                      <div class="profile-info-name"> Kode Produk </div>
 
                       <div class="profile-info-value">
-                        <span>Tidak Ada Data</span>
+                        <span>{{ $d->kode_id }}-{{ $d->kode_nomor}}</span>
                       </div>
                     </div>
 
