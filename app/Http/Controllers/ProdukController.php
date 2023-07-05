@@ -9,7 +9,9 @@ use App\Models\ProdukHargaToko;
 use App\Models\ProdukHargaLusin;
 use App\Models\ProdukStok;
 use App\Models\ProdukGambar;
+use App\Models\ProdukSatuan;
 use App\Models\KategoriProduk;
+use App\Models\KategoriProdukDetail;
 use Illuminate\Support\Str;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -46,7 +48,15 @@ class ProdukController extends Controller
         	// testing data
         	// dd($create);
           $menu = 'produk';
-        	return view('produk.create', compact('menu'));
+          $KategoriProdukDetail = KategoriProdukDetail::all();
+        	$ProdukSatuan = ProdukSatuan::all();
+
+          return view('produk.create', 
+          compact(
+            'menu',
+            'KategoriProdukDetail',
+            'ProdukSatuan',
+          ));
 
         } catch (\Exception $e) {
         	// Tangani exception yang terjadi
@@ -65,7 +75,7 @@ class ProdukController extends Controller
 	        // ]);
 	        
 	        // menyimpan data
-	        Produk::create([
+	        // Produk::create([
 	        	// old
             // 'kode_id' => "KP",
             // 'kode_nomor' => Str::padLeft(mt_rand(1, 99999), 5, '0'),
@@ -83,9 +93,18 @@ class ProdukController extends Controller
             // 'tanggal_pembelian_terakhir' => $request->tanggal_pembelian_terakhir,
             // 'tanggal_kadaluarsa' => $request->tanggal_kadaluarsa,
             // new
+          //   'nama' => $request->nama,
+          //   'kategori_id' => 1,
+          //   'satuan_id' => 1,
+	        // ]);
+
+          Produk::create([
+            'kode_id' => 'AA',
+            'kode_nomor' => 0,
             'nama' => $request->nama,
-            'kategori_id' => 1,
-            'satuan_id' => 1,
+            'kategori_id' => $request->kategori_id,
+            'slug' => Str::slug($request->nama),
+            'satuan_id' => $request->satuan_id,
 	        ]);
 
           $lastId = Produk::latest()->first()->id;
@@ -156,16 +175,27 @@ class ProdukController extends Controller
         }
     }
 
-    public function edit(Produk $id): View
+    public function edit($id): View
     { // menampilkan form edit data yang ada di kategori_produk
     	try {
     		// testing data
     		// $edit = 'Kategori Produk Edit'.$id;
     		// dd($edit);
 
-    		$data = Produk::find($id);
+    		$data = Produk::findOrFail($id);
         $menu = 'produk';
-        return view('produk.edit', compact('data','menu'));
+        $KategoriProdukDetail = KategoriProdukDetail::all();
+        $ProdukSatuan = ProdukSatuan::all();
+
+        // return dd($data[0]->satuan_id);
+
+        return view('produk.edit', 
+        compact(
+          'data',
+          'menu',
+          'KategoriProdukDetail',
+          'ProdukSatuan',
+        ));
 
     	} catch (\Exception $e) {
     		// Tangani exception yang terjadi
@@ -188,9 +218,7 @@ class ProdukController extends Controller
 				    // 'slug' => Str::slug($request->nama),
 				    // 'deskripsi' => $request->deskripsi,
             'nama' => $request->nama,
-            'modal' => $request->modal,
-            'jumlah' => $request->jumlah,
-            'tanggal_masuk' => $request->tanggal_masuk,
+            'slug' => Str::slug($request->nama),
           ]);
 	        
 	        // kembali ke halaman

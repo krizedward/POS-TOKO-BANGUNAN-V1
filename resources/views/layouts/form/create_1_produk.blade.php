@@ -21,33 +21,13 @@
       </div>
     </div>
 
-    <!-- Kategori Produk -->
+    <!-- Modal Produk -->
     <div class="form-group">
-      <label class="col-sm-3 control-label no-padding-right" for="form-field-select-1">
-        Kategori
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+        Modal
       </label>
       <div class="col-sm-9">
-        <select name="kategori_id" class="col-xs-10 col-sm-5" id="form-field-select-1">
-          <option value="">Pilih Kategori</option>
-          @foreach ($KategoriProdukDetail as $data)
-            <option value="{{ $data->id }}">{{ $data->nama }}</option>
-          @endforeach
-        </select>
-      </div>
-    </div>
-
-    <!-- Satuan Produk -->
-    <div class="form-group">
-      <label class="col-sm-3 control-label no-padding-right" for="form-field-select-1">
-        Satuan
-      </label>
-      <div class="col-sm-9">
-      <select name="satuan_id" class="col-xs-10 col-sm-5" id="form-field-select-1">
-          <option value="">Pilih Satuan</option>
-          @foreach ($ProdukSatuan as $data)
-            <option value="{{ $data->id }}">{{ $data->nama }}</option>
-          @endforeach
-        </select>
+        <input type="text" name="modal" id="form-field-1" placeholder="Modal Produk.." class="col-xs-10 col-sm-5" />
       </div>
     </div>
 
@@ -62,9 +42,57 @@
       </div>
     </div>
 
+    <!-- Tanggal Produk Masuk -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+        Tanggal Harga Terkini
+      </label>
+      <div class="col-sm-9">
+        <input type="date" name="tanggal_masuk" id="form-field-1" class="col-xs-10 col-sm-5" />
+      </div>
+    </div>
+
+    <!-- Harga Toko -->
+    <!-- <div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 
+      Harga Toko 
+    </label>
+		<div class="col-sm-9">
+			<input type="text" id="form-field-1" placeholder="jumlah.." class="col-xs-10 col-sm-5" />
+		</div>
+	  </div> -->
+
+    <!-- jumlah -->
+    <!-- <div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Jumlah </label>
+		<div class="col-sm-9">
+			<input type="number" min="0" name="first_stock" id="form-field-1" placeholder="jumlah.." class="col-xs-10 col-sm-5" />
+		</div>
+	  </div> -->
+
+    <!-- <div class="form-group">
+		<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nama </label>
+		<div class="col-sm-9">
+			<input type="text" name="nama_produk" id="form-field-1" placeholder="Nama Produk.." class="col-xs-10 col-sm-5" />
+		</div>
+	  </div> -->
+    <!-- copy -->
+
     <div class="space-4"></div>
   </form>
-
+  <!-- <form id="form2" action="{{ route('produk.gambar.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Gambar</label>
+      <div class="col-sm-9">
+        <input type="file" class="form-control-file" id="gambar" name="gambar">
+        @error('gambar')
+        <span class="text-danger">{{ $message }}</span>
+        @enderror
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload Gambar</button>
+  </form> -->
   <div class="clearfix form-actions">
     <div class="col-md-offset-3 col-md-9">
       <button class="btn btn-info" type="submit" id="submitButton">
