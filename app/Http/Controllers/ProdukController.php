@@ -27,7 +27,8 @@ class ProdukController extends Controller
     { // menampilkan data yang ada di kategori_produk
       try {
       	// testing data
-      	$data = Produk::all();
+      	// $data = Produk::all();
+      	$data = Produk::take(5)->get();
         $menu = 'produk';
       	// $data = KategoriProduk::all();
       	// dd($index);
