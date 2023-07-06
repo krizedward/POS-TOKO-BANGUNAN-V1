@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\KategoriProduk;
+use App\Models\KategoriUmumProduk;
 use App\Models\KategoriProdukDetail;
 use Illuminate\Support\Str;
 
@@ -18,7 +19,7 @@ class KategoriProdukController extends Controller
     { // menampilkan data yang ada di kategori_produk
       try {
       	// testing data
-      	$data = KategoriProdukDetail::all();
+      	$data = KategoriProduk::all();
 				$menu = 'kategori-produk';
       	// dd($index);
       	return 

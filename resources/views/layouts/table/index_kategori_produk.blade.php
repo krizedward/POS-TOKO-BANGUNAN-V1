@@ -20,7 +20,7 @@
         {{$no++}}
       </td>
       <td>{{ $d->nama }}</td>
-      <td>{{ $d->kategori->nama }}</td>
+      <td>{{ $d->umum->nama }}</td>
       <td>
         <div class="hidden-sm hidden-xs action-buttons">
           <!-- <a href="#">

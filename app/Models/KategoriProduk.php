@@ -20,14 +20,19 @@ class KategoriProduk extends Model
     protected $table = 'kategori_produk';
 
     protected $fillable = [
-        'kategori_umum_id',
-		'nama',
-		'slug',
+      'kategori_umum_id',
+		  'nama',
+		  'slug',
     ];
 
-    public function detail()
+    // public function detail()
+    // {
+    //     return $this->hasMany('App\Models\KategoriProdukDetail', 'kategori_id');
+    // }
+
+    public function umum()
     {
-        return $this->hasMany('App\Models\KategoriProdukDetail', 'kategori_id');
+      return $this->belongsTo('App\Models\KategoriUmumProduk', 'kategori_umum_id');
     }
 
     // public function products()
