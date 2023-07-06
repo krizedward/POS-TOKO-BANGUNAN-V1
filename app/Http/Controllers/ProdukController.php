@@ -30,7 +30,8 @@ class ProdukController extends Controller
       try {
       	// testing data
       	// $data = Produk::all();
-      	$data = Produk::take(5)->get();
+      	// $data = Produk::take(5)->get();
+      	$data = Produk::paginate(10);
         $menu = 'produk';
       	// $data = KategoriProduk::all();
       	// dd($index);
@@ -99,8 +100,8 @@ class ProdukController extends Controller
 	        // ]);
 
           Produk::create([
-            'kode_id' => 'AA',
-            'kode_nomor' => 0,
+            // 'kode_id' => 'AA',
+            // 'kode_nomor' => 0,
             'nama' => $request->nama,
             'kategori_id' => $request->kategori_id,
             'slug' => Str::slug($request->nama),

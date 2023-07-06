@@ -178,13 +178,13 @@
 
   <div class="col-sm-7 infobox-container">
 
-    <div class="infobox infobox-green">
+    <div class="infobox infobox-blue">
       <div class="infobox-icon">
-        <i class="ace-icon fa fa-comments"></i>
+        <i class="ace-icon fa fa-building"></i>
       </div>
 
       <div class="infobox-data">
-        <span class="infobox-data-number">0</span>
+        <span class="infobox-data-number">{{ $total }}</span>
         <div class="infobox-content">Jumlah Produk</div>
       </div>
 

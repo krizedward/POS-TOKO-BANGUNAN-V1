@@ -19,6 +19,7 @@ use App\Http\Controllers\KategoriSuplierController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukGambarController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Produk;
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
 // Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
@@ -63,7 +64,8 @@ Route::get('/', function () {
     // Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
     // return view('kategori_produk.index');
     $menu = 'dashboard';
-    return view('blank', compact('menu'));
+    $total = Produk::count();
+    return view('blank', compact('menu','total'));
     // return view('owner.master_product_index');
     // return view('skull.dashboard');
     // return view('welcome');

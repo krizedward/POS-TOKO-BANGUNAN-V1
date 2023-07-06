@@ -55,15 +55,15 @@
                 <i class="ace-icon fa fa-check bigger-120"></i>
               </button> -->
 
-              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info" data-step="4"
+              <!-- <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info" data-step="4"
                 data-intro="Langkah 4: Pilih tombol untuk detail produk">
                 <i class="ace-icon fa fa-eye bigger-120"></i>
-              </a>
+              </a> -->
 
-              <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning" data-step="5"
+              <!-- <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning" data-step="5"
                 data-intro="Langkah 5: Pilih tombol untuk edit produk">
                 <i class="ace-icon fa fa-pencil bigger-120"></i>
-              </a>
+              </a> -->
 
               <a href="#" onclick="hapusAlert(event)" class="btn btn-xs btn-danger" data-step="6"
                 data-intro="Langkah 6: Pilih tombol untuk hapus produk">
@@ -83,7 +83,7 @@
 
                 <ul
                   class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                  <li>
+                  <!-- <li>
                     <a href="{{ route('produk.show',[$d->id]) }}" class="tooltip-info" data-rel="tooltip" title="View">
                       <span class="blue">
                         <i class="ace-icon fa fa-search-plus bigger-120"></i>
@@ -98,7 +98,7 @@
                         <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
                       </span>
                     </a>
-                  </li>
+                  </li> -->
 
                   <li>
                     <a href="#" onclick="hapusAlert(event)" class="tooltip-error" data-rel="tooltip" title="Delete">
@@ -266,6 +266,32 @@
         @endforeach
       </tbody>
     </table>
+
+    <div class="pagination">
+      @if ($data->currentPage() > 1)
+        <a href="{{ $data->previousPageUrl() }}" class="btn btn-primary">
+          Previous
+        </a>
+      @endif
+
+      @if ($data->lastPage() > 1)
+        @for ($i = 1; $i <= $data->lastPage(); $i++)
+          @if ($i == $data->currentPage())
+            <span class="btn btn-primary active">{{ $i }}</span>
+          @else
+            <a href="{{ $data->url($i) }}" class="btn btn-primary">{{ $i }}</a>
+          @endif
+        @endfor
+      @endif
+
+      @if ($data->hasMorePages())
+        <a href="{{ $data->nextPageUrl() }}" class="btn btn-primary">
+          Next
+        </a>
+      @endif
+    </div>
+
+
   </div><!-- /.span -->
 </div><!-- /.row -->
 
