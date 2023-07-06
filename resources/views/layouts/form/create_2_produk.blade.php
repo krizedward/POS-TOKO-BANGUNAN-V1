@@ -29,13 +29,40 @@
       <div class="col-sm-9">
         <select name="kategori_id" class="col-xs-10 col-sm-5" id="form-field-select-1">
           <option value="">Pilih Kategori</option>
-          @foreach ($KategoriUmumProduk as $data)
+          @foreach ($KategoriProdukDetail as $data)
             <option value="{{ $data->id }}">{{ $data->nama }}</option>
           @endforeach
         </select>
       </div>
     </div>
-    
+
+    <!-- Satuan Produk -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-select-1">
+        Satuan
+      </label>
+      <div class="col-sm-9">
+      <select name="satuan_id" class="col-xs-10 col-sm-5" id="form-field-select-1">
+          <option value="">Pilih Satuan</option>
+          @foreach ($ProdukSatuan as $data)
+            <option value="{{ $data->id }}">{{ $data->nama }}</option>
+          @endforeach
+        </select>
+      </div>
+    </div>
+
+    <!-- Jumlah Produk -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+        Jumlah
+      </label>
+      <div class="col-sm-9">
+        <input type="number" name="jumlah" min="0" id="form-field-1" placeholder="Jumlah Produk.."
+          class="col-xs-10 col-sm-5" />
+      </div>
+    </div>
+
+    <div class="space-4"></div>
   </form>
 
   <div class="clearfix form-actions">

@@ -20,12 +20,16 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            // CategoryProductTableSeeder::class,
+            KategoriUmumProdukTableSeeder::class,
             KategoriProdukTableSeeder::class,
-            KategoriProdukDetailTableSeeder::class,
-            KategoriSuplierTableSeeder::class,
-            ProdukSatuanTableSeeder::class,
-            ProdukTableSeeder::class,
+            
+            // CategoryProductTableSeeder::class,
+            // KategoriProdukTableSeeder::class,
+            // KategoriProdukDetailTableSeeder::class,
+            // KategoriSuplierTableSeeder::class,
+            // ProdukSatuanTableSeeder::class,
+            // ProdukTableSeeder::class,
+
             // ProdukStokTableSeeder::class,
             // ProdukHargaEcerTableSeeder::class,
             // ProdukHargaModalTableSeeder::class,

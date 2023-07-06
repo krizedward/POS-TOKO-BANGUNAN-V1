@@ -20,6 +20,7 @@
         @endphp
         @foreach($data as $d)
         @php
+        $stok = $d->stok;
         $ecer = $d->ecer;
         $modal = $d->modal;
         $toko = $d->toko;

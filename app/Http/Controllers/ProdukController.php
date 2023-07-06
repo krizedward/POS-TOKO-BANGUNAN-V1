@@ -7,11 +7,11 @@ use App\Models\ProdukHargaModal;
 use App\Models\ProdukHargaEcer;
 use App\Models\ProdukHargaToko;
 use App\Models\ProdukHargaLusin;
-use App\Models\ProdukStok;
+// use App\Models\ProdukStok;
 use App\Models\ProdukGambar;
 use App\Models\ProdukSatuan;
 use App\Models\KategoriProduk;
-use App\Models\KategoriProdukDetail;
+use App\Models\KategoriUmumProduk;
 use Illuminate\Support\Str;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -48,14 +48,14 @@ class ProdukController extends Controller
         	// testing data
         	// dd($create);
           $menu = 'produk';
-          $KategoriProdukDetail = KategoriProdukDetail::all();
-        	$ProdukSatuan = ProdukSatuan::all();
+          $KategoriUmumProduk = KategoriUmumProduk::all();
+        	// $ProdukSatuan = ProdukSatuan::all();
 
           return view('produk.create', 
           compact(
             'menu',
-            'KategoriProdukDetail',
-            'ProdukSatuan',
+            'KategoriUmumProduk',
+            // 'ProdukSatuan',
           ));
 
         } catch (\Exception $e) {
@@ -104,15 +104,14 @@ class ProdukController extends Controller
             'nama' => $request->nama,
             'kategori_id' => $request->kategori_id,
             'slug' => Str::slug($request->nama),
-            'satuan_id' => $request->satuan_id,
 	        ]);
 
           $lastId = Produk::latest()->first()->id;
 
-          ProdukStok::create([
-            'produk_id' => $lastId,
-            'jumlah'=> $request->jumlah,
-          ]);
+          // ProdukStok::create([
+          //   'produk_id' => $lastId,
+          //   'jumlah'=> $request->jumlah,
+          // ]);
 
           ProdukHargaModal::create([
             'produk_id' => $lastId,
