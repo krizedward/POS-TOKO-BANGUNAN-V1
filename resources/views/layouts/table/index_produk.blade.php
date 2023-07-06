@@ -16,15 +16,16 @@
 
       <tbody>
         @php
-        $no = 1
+          $no = 1
         @endphp
+        
         @foreach($data as $d)
-        @php
-        $ecer = $d->ecer;
-        $modal = $d->modal;
-        $toko = $d->toko;
-        $lusin = $d->lusin;
-        @endphp
+          @php
+            $ecer = $d->ecer;
+            $modal = $d->modal;
+            $toko = $d->toko;
+            $lusin = $d->lusin;
+          @endphp
         <tr>
           <td class="center">
             <div class="action-buttons">
@@ -55,10 +56,10 @@
                 <i class="ace-icon fa fa-check bigger-120"></i>
               </button> -->
 
-              <!-- <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info" data-step="4"
+              <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-xs btn-info" data-step="4"
                 data-intro="Langkah 4: Pilih tombol untuk detail produk">
                 <i class="ace-icon fa fa-eye bigger-120"></i>
-              </a> -->
+              </a>
 
               <!-- <a href="{{ route('produk.edit',[$d->id]) }}" class="btn btn-xs btn-warning" data-step="5"
                 data-intro="Langkah 5: Pilih tombol untuk edit produk">
@@ -83,7 +84,7 @@
 
                 <ul
                   class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                  <!-- <li>
+                  <li>
                     <a href="{{ route('produk.show',[$d->id]) }}" class="tooltip-info" data-rel="tooltip" title="View">
                       <span class="blue">
                         <i class="ace-icon fa fa-search-plus bigger-120"></i>
@@ -91,7 +92,7 @@
                     </a>
                   </li>
 
-                  <li>
+                  <!-- <li>
                     <a href="{{ route('produk.edit',[$d->id]) }}" class="tooltip-success" data-rel="tooltip"
                       title="Edit">
                       <span class="green">

@@ -18,8 +18,12 @@ use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KategoriSuplierController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukGambarController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukHargaEcerController;
+use App\Http\Controllers\ProdukHargaModalController;
+use App\Http\Controllers\ProdukHargaTokoController;
+use App\Http\Controllers\ProdukHargaLusinController;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Produk;
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
 // Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
@@ -60,19 +64,20 @@ Route::delete('produk/{id}', [ProdukController::class, 'destroy'])->name('produk
 Route::post('produk/gambar', [ProdukGambarController::class, 'store'])->name('produk.gambar.store');
 Route::put('produk/gambar/{id}', [ProdukGambarController::class, 'update'])->name('produk.gambar.update');
 
-Route::get('/', function () {
-    // Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
-    // return view('kategori_produk.index');
-    $menu = 'dashboard';
-    $total = Produk::count();
-    return view('blank', compact('menu','total'));
-    // return view('owner.master_product_index');
-    // return view('skull.dashboard');
-    // return view('welcome');
-    // ada di halaman blank dan sudah terintergrasi
-    // dengan info.js
-    // https://introjs.com/docs/examples/basic/json-config
-})->name('dashboard');
+//Harga Ecer
+Route::get('produk/{id}/harga-ecer/edit', [ProdukHargaEcerController::class, 'edit'])->name('harga.ecer.edit');
+Route::put('produk/{id}/harga-ecer', [ProdukHargaEcerController::class, 'update'])->name('harga.ecer.update');
+// Harga Modal
+Route::get('produk/{id}/harga-modal/edit', [ProdukHargaModalController::class, 'edit'])->name('harga.modal.edit');
+Route::put('produk/{id}/harga-modal', [ProdukHargaModalController::class, 'update'])->name('harga.modal.update');
+// Harga Toko
+Route::get('produk/{id}/harga-toko/edit', [ProdukHargaTokoController::class, 'edit'])->name('harga.toko.edit');
+Route::put('produk/{id}/harga-toko', [ProdukHargaTokoController::class, 'update'])->name('harga.toko.update');
+// Harga Lusin
+Route::get('produk/{id}/harga-lusin/edit', [ProdukHargaLusinController::class, 'edit'])->name('harga.lusin.edit');
+Route::put('produk/{id}/harga-lusin', [ProdukHargaLusinController::class, 'update'])->name('harga.lusin.update');
+// Dashboard
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/page', function () {
     Alert::success('Success', 'You have been successfully logged in.')->autoclose(3000);
