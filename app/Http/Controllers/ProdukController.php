@@ -12,6 +12,7 @@ use App\Models\ProdukGambar;
 use App\Models\ProdukSatuan;
 use App\Models\KategoriProduk;
 use App\Models\KategoriUmumProduk;
+use App\Models\KategoriBarang;
 use Illuminate\Support\Str;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -50,12 +51,14 @@ class ProdukController extends Controller
         	// dd($create);
           $menu = 'produk';
           $KategoriUmumProduk = KategoriUmumProduk::all();
+          $KategoriBarang = KategoriBarang::all();
         	// $ProdukSatuan = ProdukSatuan::all();
 
           return view('produk.create', 
           compact(
             'menu',
             'KategoriUmumProduk',
+            'KategoriBarang',
             // 'ProdukSatuan',
           ));
 

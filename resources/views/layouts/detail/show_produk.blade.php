@@ -26,14 +26,14 @@
                   $modal = $d->modal;
                 @endphp
               <tr>
-                <td>Modal</td>
                 @foreach($modal as $modalItem)
                 <td>
                   Rp. {{ number_format ($modalItem->harga) }}
                 </td>
+                <td>{{ $modalItem->jumlah }} / Sak</td>
                 @endforeach
                 <td>
-                  <a href="#">
+                  <a href="{{ route('harga.modal.edit', [$d->id]) }}">
                     <span class="label label-sm label-warning">Ganti</span>
                   </a>
                 </td>

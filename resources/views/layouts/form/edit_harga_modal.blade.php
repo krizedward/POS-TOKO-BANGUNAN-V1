@@ -37,7 +37,7 @@
 
   <div class="clearfix form-actions">
     <div class="col-md-offset-3 col-md-9">
-      <a href="{{ route('produk.show',[$d->id]) }}" class="btn btn-warning" type="reset">
+      <a href="{{ route('produk.show',[$data->id]) }}" class="btn btn-warning" type="reset">
         <i class="ace-icon fa fa-arrow-left  bigger-110"></i>
         Kembali
       </a>

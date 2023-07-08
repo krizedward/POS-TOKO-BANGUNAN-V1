@@ -35,7 +35,7 @@
 			</div>
 			@endif
 			<!-- form -->
-			@include('layouts.form.edit_harga_ecer')
+			@include('layouts.form.edit_harga_modal')
 			<!-- PAGE CONTENT ENDS -->
 		</div><!-- /.col -->
 	</div>

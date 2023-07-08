@@ -36,6 +36,21 @@
       </div>
     </div>
 
+    <!-- Kategori Produk -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label no-padding-right" for="form-field-select-1">
+        Kategori
+      </label>
+      <div class="col-sm-9">
+        <select name="kategori_id" class="col-xs-10 col-sm-5" id="form-field-select-1">
+          <option value="">Pilih Kategori</option>
+          @foreach ($KategoriBarang as $data)
+          <option value="{{ $data->id }}">{{ $data->nama }}</option>
+          @endforeach
+        </select>
+      </div>
+    </div>
+
   </form>
 
   <div class="clearfix form-actions">

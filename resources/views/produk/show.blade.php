@@ -9,14 +9,16 @@
 @section('page-header')
   <!-- page-header -->
   <div class="page-header">
+    @foreach($data as $d)
     <h1>
-      Produk
+      Produk {{ $d->nama }}
       <small data-step="1" data-intro="Menampilkan tabel kategori">
         <i class="ace-icon fa fa-angle-double-right"></i>
         <!-- top menu &amp; navigation -->
         show page
       </small>
     </h1>
+    @endforeach
   </div><!-- /.page-header -->
 @endsection
 

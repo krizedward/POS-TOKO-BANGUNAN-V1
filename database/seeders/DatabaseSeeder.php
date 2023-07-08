@@ -20,9 +20,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            KategoriUmumProdukTableSeeder::class,
-            KategoriProdukTableSeeder::class,
+            // KategoriUmumProdukTableSeeder::class,
+            // KategoriProdukTableSeeder::class,
             
+            KategoriBarangUmumTableSeeder::class,
+            KategoriBarangTableSeeder::class,
+
             // CategoryProductTableSeeder::class,
             // KategoriProdukTableSeeder::class,
             // KategoriProdukDetailTableSeeder::class,
