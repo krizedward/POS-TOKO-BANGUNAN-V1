@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\API\BarangSatuanController;
+use App\Http\Controllers\API\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,10 @@ use App\Http\Controllers\API\BarangSatuanController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// barang satuan
 Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
+//barang
+Route::get('/barang', [BarangController::class, 'index']);
 
 Route::get('/kategori-produk', [KategoriProdukController::class, 'index'])->name('kategori.produk.index');
 Route::post('/kategori-produk', [KategoriProdukController::class, 'store'])->name('kategori.produk.store');

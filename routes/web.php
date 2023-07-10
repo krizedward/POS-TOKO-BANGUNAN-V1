@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 // use App\Http\Controllers\ProductController;
-use App\Http\Controllers\KategoriProdukController;
-use App\Http\Controllers\KategoriSuplierController;
 use App\Http\Controllers\BarangSatuanController;
+use App\Http\Controllers\BarangController;
 
 // Test
-Route::get('/', [BarangSatuanController::class, 'index']);
+Route::get('/', [BarangController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Barang Satuan
 Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
+
+//Barang
+Route::get('/barang', [BarangController::class, 'index']);
+
 // Auth
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
