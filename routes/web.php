@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangSatuanController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangUkuranController;
+use App\Http\Controllers\BarangMasterController;
 
 // Test
-Route::get('/', [BarangUkuranController::class, 'index']);
+Route::get('/', [BarangMasterController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Barang Satuan
@@ -27,6 +28,9 @@ Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
 
 //Barang
 Route::get('/barang', [BarangController::class, 'index']);
+
+//Barang Ukuran
+Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
 
 // Auth
 Auth::routes();

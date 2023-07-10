@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama')->nullable();
-            $table->string('slug')->nullable(); // untuk nama url
+            $table->string('slug')->nullable();
+            $table->text('keterangan')->nullable(); // untuk nama url
             //custom
+            $table->unsignedBigInteger('master_id')->nullable();
             $table->unsignedBigInteger('kategori_id')->nullable();
             $table->unsignedBigInteger('satuan_id')->nullable();
             $table->timestamps();
@@ -28,6 +30,11 @@ return new class extends Migration
 
             $table->foreign('satuan_id')
             ->references('id')->on('barang_satuan')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreign('master_id')
+            ->references('id')->on('barang_master')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });

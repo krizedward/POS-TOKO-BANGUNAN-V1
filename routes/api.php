@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\API\BarangSatuanController;
 use App\Http\Controllers\API\BarangController;
 use App\Http\Controllers\API\BarangUkuranController;
+use App\Http\Controllers\API\BarangMasterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
 Route::get('/barang', [BarangController::class, 'index']);
 // barang ukuran
 Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
+// barang master
+Route::get('/barang-master', [BarangMasterController::class, 'index']);
 
 Route::get('/kategori-produk', [KategoriProdukController::class, 'index'])->name('kategori.produk.index');
 Route::post('/kategori-produk', [KategoriProdukController::class, 'store'])->name('kategori.produk.store');
