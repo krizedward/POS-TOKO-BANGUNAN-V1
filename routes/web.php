@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BarangSatuanController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangUkuranController;
 
 // Test
-Route::get('/', [BarangController::class, 'index']);
+Route::get('/', [BarangUkuranController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Barang Satuan

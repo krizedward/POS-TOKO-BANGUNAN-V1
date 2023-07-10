@@ -19,6 +19,7 @@ class BarangTableSeeder extends Seeder
         //
         $datas = array(
             array('nama' => 'Tiga Roda'),
+            array('nama' => 'Asbes Gelombang AD')
         );
 
         foreach ($datas as $data) {
