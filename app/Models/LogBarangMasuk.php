@@ -5,24 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BarangStok extends Model
+class LogBarangMasuk extends Model
 {
     use HasFactory;
 
     /**
      * Next Step.
-     * php artisan make:seeder BarangStokTableSeeder
-     * php artisan db:seed --class=BarangStokTableSeeder
+     * php artisan make:seeder LogBarangMasukTableSeeder
+     * php artisan db:seed --class=LogBarangMasukTableSeeder
      * Happy Coding :)
      */
 
     protected $primaryKey = 'id';
-    protected $table = 'barang_stok';
+    protected $table = 'log_barang_masuk';
     
     protected $fillable = [
       'barang_id',
-      'stok_masuk',
-      'stok_keluar',
-      'total_banyak',
+      'banyak',
     ];
 }

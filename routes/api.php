@@ -9,6 +9,7 @@ use App\Http\Controllers\API\BarangController;
 use App\Http\Controllers\API\BarangUkuranController;
 use App\Http\Controllers\API\BarangMasterController;
 use App\Http\Controllers\API\BarangStokController;
+use App\Http\Controllers\API\LogBarangMasukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
 Route::get('/barang-master', [BarangMasterController::class, 'index']);
 // barang stok
 Route::get('/barang-stok', [BarangStokController::class, 'index']);
+// log barang masuk
+Route::get('/log-barang-masuk', [LogBarangMasukController::class, 'index']);
 
 Route::get('/kategori-produk', [KategoriProdukController::class, 'index'])->name('kategori.produk.index');
 Route::post('/kategori-produk', [KategoriProdukController::class, 'store'])->name('kategori.produk.store');

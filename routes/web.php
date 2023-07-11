@@ -19,9 +19,10 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangUkuranController;
 use App\Http\Controllers\BarangMasterController;
 use App\Http\Controllers\BarangStokController;
+use App\Http\Controllers\LogBarangMasukController;
 
 // Test
-Route::get('/', [BarangStokController::class, 'index']);
+Route::get('/', [LogBarangMasukController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Barang Satuan
@@ -35,6 +36,9 @@ Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
 
 //Barang Master
 Route::get('/barang-master', [BarangMasterController::class, 'index']);
+
+//Barang Stok
+Route::get('/barang-stok', [BarangStokController::class, 'index']);
 
 // Auth
 Auth::routes();

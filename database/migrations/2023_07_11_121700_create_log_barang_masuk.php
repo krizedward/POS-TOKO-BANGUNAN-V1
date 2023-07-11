@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barang_stok', function (Blueprint $table) {
+        Schema::create('log_barang_masuk', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('barang_id')->nullable();
-            $table->integer('stok_masuk')->nullable();
-            $table->integer('stok_keluar')->nullable();
-            $table->integer('total_banyak')->nullable(); // total = masuk - keluar
+            $table->integer('banyak')->nullable();
             $table->timestamps();
 
             // relasi
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barang_stok');
+        Schema::dropIfExists('log_barang_masuk');
     }
 };
