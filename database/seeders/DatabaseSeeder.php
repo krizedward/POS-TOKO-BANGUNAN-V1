@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             BarangStokTableSeeder::class,
             LogBarangMasukTableSeeder::class,
             LogBarangKeluarTableSeeder::class,
+            BarangFotoTableSeeder::class,
 
             // CategoryProductTableSeeder::class,
             // KategoriProdukTableSeeder::class,

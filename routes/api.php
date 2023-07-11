@@ -9,6 +9,7 @@ use App\Http\Controllers\API\BarangController;
 use App\Http\Controllers\API\BarangUkuranController;
 use App\Http\Controllers\API\BarangMasterController;
 use App\Http\Controllers\API\BarangStokController;
+use App\Http\Controllers\API\BarangFotoController;
 use App\Http\Controllers\API\LogBarangMasukController;
 use App\Http\Controllers\API\LogBarangKeluarController;
 
@@ -40,6 +41,8 @@ Route::get('/barang-stok', [BarangStokController::class, 'index']);
 Route::get('/log-barang-masuk', [LogBarangMasukController::class, 'index']);
 // log barang keluar
 Route::get('/log-barang-keluar', [LogBarangKeluarController::class, 'index']);
+// barang foto
+Route::get('/barang-foto', [BarangFotoController::class, 'index']);
 
 Route::get('/kategori-produk', [KategoriProdukController::class, 'index'])->name('kategori.produk.index');
 Route::post('/kategori-produk', [KategoriProdukController::class, 'store'])->name('kategori.produk.store');
