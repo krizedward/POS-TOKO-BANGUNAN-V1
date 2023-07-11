@@ -18,9 +18,10 @@ use App\Http\Controllers\BarangSatuanController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangUkuranController;
 use App\Http\Controllers\BarangMasterController;
+use App\Http\Controllers\BarangStokController;
 
 // Test
-Route::get('/', [BarangMasterController::class, 'index']);
+Route::get('/', [BarangStokController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 //Barang Satuan
@@ -31,6 +32,9 @@ Route::get('/barang', [BarangController::class, 'index']);
 
 //Barang Ukuran
 Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
+
+//Barang Master
+Route::get('/barang-master', [BarangMasterController::class, 'index']);
 
 // Auth
 Auth::routes();

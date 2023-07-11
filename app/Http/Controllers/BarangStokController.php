@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BarangUkuran;
+use App\Models\BarangStok;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BarangUkuranController extends Controller
+class BarangStokController extends Controller
 {
     //
     public function index () {
-
-      $data = BarangUkuran::all();
       
+      $data = BarangStok::all();
+
       return dd($data);
     }
 }
