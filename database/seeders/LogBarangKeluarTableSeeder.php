@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\LogBarangMasuk;
+use App\Models\LogBarangKeluar;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LogBarangMasukTableSeeder extends Seeder
+class LogBarangKeluarTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,7 +21,7 @@ class LogBarangMasukTableSeeder extends Seeder
         );
 
         foreach ($datas as $data) {
-            LogBarangMasuk::create([
+            LogBarangKeluar::create([
                 'barang_id' => $data['barang_id'],
                 'banyak' => $data['banyak'],
             ]);

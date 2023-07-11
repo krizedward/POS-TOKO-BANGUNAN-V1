@@ -20,10 +20,14 @@ use App\Http\Controllers\BarangUkuranController;
 use App\Http\Controllers\BarangMasterController;
 use App\Http\Controllers\BarangStokController;
 use App\Http\Controllers\LogBarangMasukController;
+use App\Http\Controllers\LogBarangKeluarController;
 
 // Test
-Route::get('/', [LogBarangMasukController::class, 'index']);
+Route::get('/', [LogBarangKeluarController::class, 'index']);
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+//Log Barang Masuk
+Route::get('/log-barang-masuk', [LogBarangMasukController::class, 'index']);
 
 //Barang Satuan
 Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
