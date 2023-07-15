@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('stok_masuk')->nullable();
             $table->integer('stok_keluar')->nullable();
             $table->integer('total_banyak')->nullable(); // total = masuk - keluar
+            $table->string('bulan_stok')->nullable();
+            $table->string('tahun_stok')->nullable();
             $table->timestamps();
 
             // relasi

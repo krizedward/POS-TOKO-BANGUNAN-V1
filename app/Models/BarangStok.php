@@ -24,5 +24,7 @@ class BarangStok extends Model
       'stok_masuk',
       'stok_keluar',
       'total_banyak',
+      'bulan_stok',
+      'tahun_stok',
     ];
 }

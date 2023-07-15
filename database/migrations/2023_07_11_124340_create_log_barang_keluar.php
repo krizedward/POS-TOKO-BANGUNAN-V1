@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->integer('banyak')->nullable();
+            $table->date('waktu')->nullable();
             $table->timestamps();
 
             // relasi

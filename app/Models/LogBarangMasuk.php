@@ -22,5 +22,6 @@ class LogBarangMasuk extends Model
     protected $fillable = [
       'barang_id',
       'banyak',
+      'waktu',
     ];
 }

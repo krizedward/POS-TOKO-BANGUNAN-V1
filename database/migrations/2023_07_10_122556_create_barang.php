@@ -24,7 +24,7 @@ return new class extends Migration
 
             // relasi
             $table->foreign('kategori_id')
-            ->references('id')->on('kategori_produk')
+            ->references('id')->on('kategori_barang')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 

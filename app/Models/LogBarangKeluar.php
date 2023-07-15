@@ -22,6 +22,7 @@ class LogBarangKeluar extends Model
     protected $fillable = [
       'barang_id',
       'banyak',
+      'waktu',
     ];
 
 }
