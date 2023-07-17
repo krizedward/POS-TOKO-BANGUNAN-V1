@@ -18,16 +18,19 @@ class BarangSatuanTableSeeder extends Seeder
     {
         //
         $datas = array(
-            array('nama' => 'kg'),
-            array('nama' => 'sak'),
-            array('nama' => 'm³'),
-            array('nama' => 'meter'),
+          array('nama' => 'kg', 'keterangan' => 'Kilogram'),
+          array('nama' => 'sak', 'keterangan' => 'Kantong'),
+          array('nama' => 'm³', 'keterangan' => 'Meter kubik'),
+          array('nama' => 'meter', 'keterangan' => 'Meter'),
+          array('nama' => 'm²', 'keterangan' => 'Meter persegi'),
+          array('nama' => 'unit', 'keterangan' => 'Buah'),
+          array('nama' => 'box', 'keterangan' => 'Kotak'),
         );
 
         foreach ($datas as $data) {
             BarangSatuan::firstOrCreate(
                 ['nama' => $data['nama']],
-                ['slug' => Str::slug($data['nama'])]
+                ['keterangan' => $data['keterangan'], 'slug' => Str::slug($data['keterangan'])]
             );
         }
     }

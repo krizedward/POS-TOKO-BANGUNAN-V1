@@ -47,6 +47,8 @@ Route::get('/barang-master', [BarangMasterController::class, 'index']);
 
 //Barang Stok
 Route::get('/barang-stok', [BarangStokController::class, 'index']);
+Route::get('/barang-stok/create', [BarangStokController::class, 'create']);
+Route::post('/barang-stok', [BarangStokController::class, 'store']);
 
 // Auth
 Auth::routes();

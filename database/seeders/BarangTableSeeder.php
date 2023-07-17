@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // add model
 use App\Models\Barang;
+use App\Models\BarangStok;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -811,10 +812,20 @@ class BarangTableSeeder extends Seeder
         );
 
         foreach ($datas as $data) {
-            Barang::firstOrCreate(
+            $barang = Barang::firstOrCreate(
                 ['nama' => $data['nama']],
                 ['slug' => Str::slug($data['nama'])]
             );
+            
+            // ambil id
+            $lastId = $barang->id;
+
+            BarangStok::create([
+              'barang_id' => $lastId,
+              'stok_masuk' => 0,
+              'stok_keluar' => 0,
+              'total_banyak' => 0,
+            ]);
         }
     }
 }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('barang_satuan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama')->nullable();
+            $table->string('keterangan')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

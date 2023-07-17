@@ -21,6 +21,7 @@ class BarangSatuan extends Model
     
     protected $fillable = [
       'nama',
+      'keterangan',
       'slug',
     ];
 }
