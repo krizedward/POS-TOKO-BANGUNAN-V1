@@ -24,4 +24,9 @@ class LogBarangMasuk extends Model
       'banyak',
       'waktu',
     ];
+
+    public function barang()
+    {
+      return $this->belongsTo('App\Models\Barang', 'barang_id');
+    }
 }

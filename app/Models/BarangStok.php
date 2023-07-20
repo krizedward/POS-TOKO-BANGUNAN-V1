@@ -27,4 +27,9 @@ class BarangStok extends Model
       'bulan_stok',
       'tahun_stok',
     ];
+
+    public function barang()
+    {
+      return $this->belongsTo('App\Models\Barang', 'barang_id');
+    }
 }

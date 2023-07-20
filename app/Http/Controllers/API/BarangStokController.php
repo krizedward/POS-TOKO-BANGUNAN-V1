@@ -6,6 +6,7 @@ use App\Models\BarangStok;
 use App\Models\LogBarangKeluar;
 use App\Models\LogBarangMasuk;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,32 @@ class BarangStokController extends Controller
      */
     public function index()
     {
-        //
-        $data = BarangStok::all();
-        return response()->json($data);
+        // data yang ingin ditampilkan
+        // $data = BarangStok::all();
+        $data = BarangStok::take(5)->get();
+
+        // variable
+        $namaBarangArray = [];
+
+        foreach ($data as $item) {
+          $namaBarangArray[] = [
+            'nama' => $item->barang->nama,
+            'stok_masuk' => $item->stok_masuk,
+            'stok_keluar' => $item->stok_keluar,
+            'bulan_stok' => $item->bulan_stok,
+            'tahun_stok' => $item->tahun_stok,
+            'created_at' => $item->barang->created_at,
+            'update_at' => $item->barang->updated_at,
+          ];
+        }
+
+        // Berikan respons terhadap respon diatas
+        return response()->json([
+          'status' => 200,
+          'status_message' => 'sukses',
+          'message' => 'Data berhasil ditampilkan',
+          'data' => $namaBarangArray,
+        ], 200);
     }
 
     /**
@@ -26,50 +50,130 @@ class BarangStokController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // Validasi data yang diterima
-        // $validatedData = $request->validate([
-        //   'nama' => 'required',
-        //   'keterangan' => 'required',
-        //   // Tambahkan validasi untuk kolom lain jika diperlukan
-        // ]);
+      try {
 
-        // Simpan data ke tabel BarangSatuan
-        // $barangs = new BarangSatuan;
-        // $barangs->nama = $request->input('nama');
-        // $barangs->keterangan = $request->input('keterangan');
-        // // Set atribut lainnya jika diperlukan
-        // $barangs->save();
+        $validator = Validator::make($request->all(), [
+          'barang_id' => 'required',
+          'banyak' => 'required',
+          'status' => 'required',
+          // Tambahkan aturan validasi lain sesuai kebutuhan
+        ]); // validasi
+  
+        if ($validator->fails()) 
+        {
+          
+          return response()->json([
+            'status' => 'error',
+            'message' => 'Data yang diterima tidak valid.',
+            'errors' => $validator->errors(),
+          ], 422);
+  
+        } else {
 
-        // Simpan data ke tabel BarangStok
-        BarangStok::create([
-          'barang_id' => 1,
-          'stok_masuk' => 0,
-          'stok_keluar' => 0,
-          'total_banyak' => 0,
-          'bulan_stok' => 'maret',
-          'tahun_stok' => '2023',
-        ]);
+          $id = $request->barang_id;
+          $statusBarang = $request->status;
+          $banyakBarang = $request->banyak;
+          // tanggal 
+          $tanggal  = now();
+          // Memecahkan tanggal menjadi bagian-bagian (tahun, bulan, hari)
+          $tanggalArray = explode('-', $tanggal);
+          $tahun = $tanggalArray[0];
+          $bulan = $tanggalArray[1];
+          $hari = $tanggalArray[2];
+          // Mendapatkan nama bulan dalam bentuk string
+          $namaBulan = date("F", strtotime($tanggal));
 
-        // Simpan data ke tabel LogBarangMasuk
-        LogBarangMasuk::create([
-          'barang_id' => 1,
-          'banyak' => 0,
-          'waktu' => '2023-01-01',
-        ]);
+          if ($statusBarang ==  'masuk') 
+          {
+            LogBarangMasuk::create([
+              'barang_id' => $request->barang_id,
+              'banyak' => $request->banyak,
+              'waktu' => $tanggal,
+            ]);
 
-        // Simpan data ke tabel LogBarangKeluar
-        LogBarangKeluar::create([
-          'barang_id' => 1,
-          'banyak' => 1,
-          'waktu' => '2023-01-01',
-        ]);
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+            $barangMasuk = LogBarangMasuk::latest()->first();
+            $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
+            
+            BarangStok::where('barang_id',$id)->update([
+              'stok_masuk' => $barangStok->stok_masuk + $banyakBarang,
+              'total_banyak' => $barangStok->total_banyak + $banyakBarang,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $tahun,
+            ]);
 
-        // Berikan respons sukses
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+
+            $data = [
+              'nama' => $barangStok->barang->nama,
+              'stok_masuk' => $barangStok->stok_masuk,
+              'stok_keluar' => $barangStok->stok_keluar,
+              'total_banyak' => $barangStok->total_banyak,
+              'bulan_stok' => $barangStok->bulan_stok,
+              'tahun_stok' => $barangStok->tahun_stok,
+              'barang_keluar' => [
+                'banyak' => $barangMasuk->banyak,
+                'waktu' => $barangMasuk->waktu,
+              ]
+            ];
+
+          } // memasukan data barang masuk
+
+          if ($statusBarang ==  'keluar')
+          {
+            LogBarangKeluar::create([
+              'barang_id' => $request->barang_id,
+              'banyak' => $request->banyak,
+              'waktu' => $tanggal,
+            ]);
+
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+            $barangKeluar = LogBarangKeluar::latest()->first();
+            $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
+            
+            BarangStok::where('barang_id',$id)->update([
+              'stok_keluar' => $barangStok->stok_keluar + $banyakBarang,
+              'total_banyak' => $barangStok->total_banyak - $banyakBarang,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $tahun,
+            ]);
+
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+
+            $data = [
+              'nama' => $barangStok->barang->nama,
+              'stok_masuk' => $barangStok->stok_masuk,
+              'stok_keluar' => $barangStok->stok_keluar,
+              'total_banyak' => $barangStok->total_banyak,
+              'bulan_stok' => $barangStok->bulan_stok,
+              'tahun_stok' => $barangStok->tahun_stok,
+              'barang_keluar' => [
+                'banyak' => $barangKeluar->banyak,
+                'waktu' => $barangKeluar->waktu,
+              ]
+            ];
+          } // memasukan data barang keluar
+
+          // Berikan respons sukses
+          return response()->json([
+            'status' => 201,
+            'status_message' => 'sukses',
+            'message' => 'Data berhasil disimpan',
+            'data' => $data,
+          ], 201);
+  
+        }
+
+      } catch (\Exception $e) {
+
+        // Tangani exception yang terjadi
         return response()->json([
-          'message' => 'Data berhasil disimpan',
-          // 'data' => $barangs
-        ], 201);
+          'status' => 'error',
+          'message' => 'Gagal menyimpan data',
+          'error' => $e->getMessage()
+        ], 500);
+
+      } 
     }
 
     /**

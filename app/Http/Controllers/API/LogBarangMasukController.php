@@ -14,8 +14,25 @@ class LogBarangMasukController extends Controller
     public function index()
     {
         //
-        $data = LogBarangMasuk::all();
-        return response()->json($data);
+        $data = LogBarangMasuk::take(5)->get();
+
+        $namaArray = [];
+
+        foreach ($data as $item) {
+          $namaArray[] = [
+            'nama' => $item->barang->nama,
+            'banyak' => $item->banyak,
+            'waktu' => $item->waktu,
+          ];
+        }
+
+        // Berikan respons terhadap respon diatas
+        return response()->json([
+          'status' => 200,
+          'status_message' => 'sukses',
+          'message' => 'Data berhasil ditampilkan',
+          'data' => $namaArray,
+        ], 200);
     }
 
     /**

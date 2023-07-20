@@ -43,6 +43,10 @@ Route::put('/barang-stok/{id}', [BarangStokController::class, 'update']);
 Route::delete('/barang-stok/{id}', [BarangStokController::class, 'destroy']);
 // log barang masuk
 Route::get('/log-barang-masuk', [LogBarangMasukController::class, 'index']);
+Route::post('/log-barang-masuk', [LogBarangMasukController::class, 'store']);
+Route::get('/log-barang-masuk/{id}', [LogBarangMasukController::class, 'show']);
+Route::put('/log-barang-masuk/{id}', [LogBarangMasukController::class, 'update']);
+Route::delete('/log-barang-masuk/{id}', [LogBarangMasukController::class, 'destroy']);
 // log barang keluar
 Route::get('/log-barang-keluar', [LogBarangKeluarController::class, 'index']);
 // barang foto
