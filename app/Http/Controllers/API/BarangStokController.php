@@ -7,6 +7,7 @@ use App\Models\BarangTotalStok;
 use App\Models\LogBarangKeluar;
 use App\Models\LogBarangMasuk;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -97,11 +98,38 @@ class BarangStokController extends Controller
               'waktu' => $tanggal,
             ]);
 
-            BarangTotalStok::create([
-              'barang_id' => $request->barang_id,
-            ]);
+            // $barangTotalStok = BarangTotalStok::where('barang_id', $id)
+            //   ->orderBy('created_at', 'desc')
+            //   ->get();
+
+            if($barangTotalStok === null || $barangTotalStok->bulan_stok !== $namaBulan) {
+              BarangTotalStok::create([
+                'barang_id' => $request->barang_id,
+                'total_banyak' => 0,
+                'bulan_stok' => $namaBulan,
+              ]);
+            }
+
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)
+              ->orderBy('created_at', 'desc')
+              ->get();
+
+            // BarangTotalStok::create([
+            //   'barang_id' => $request->barang_id,
+            //   'total_banyak' => 0,
+            //   'bulan_stok' => $namaBulan,
+            // ]);
+
+            // if($barangTotalStok === null || $barangTotalStok->bulan_stok !== $namaBulan) {
+            //   BarangTotalStok::create([
+            //     'barang_id' => $request->barang_id,
+            //     'total_banyak' => 0,
+            //     'bulan_stok' => $namaBulan,
+            //   ]);
+            // }
 
             $barangStok = BarangStok::where('barang_id', $id)->first();
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
             $barangMasuk = LogBarangMasuk::latest()->first();
             $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
             
@@ -109,21 +137,23 @@ class BarangStokController extends Controller
               'stok_masuk' => $barangStok->stok_masuk + $banyakBarang,
             ]);
 
-            BarangTotalStok::where('barang_id',$id)->update([
-              'total_banyak' => $barangStok->total_banyak + $banyakBarang,
-              'bulan_stok' => $namaBulan,
+            BarangTotalStok::where('barang_id',$id)
+            ->where('bulan_stok', $namaBulan) // Bulan bukan 'July'
+            ->update([
+              'total_banyak' => $barangTotalStok->total_banyak + $banyakBarang,
               'tahun_stok' => $tahun,
             ]);
 
             $barangStok = BarangStok::where('barang_id', $id)->first();
-
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+            
             $data = [
               'nama' => $barangStok->barang->nama,
               'stok_masuk' => $barangStok->stok_masuk,
               'stok_keluar' => $barangStok->stok_keluar,
-              'total_banyak' => $barangStok->total_banyak,
-              'bulan_stok' => $barangStok->bulan_stok,
-              'tahun_stok' => $barangStok->tahun_stok,
+              'total_banyak' => $barangTotalStok->total_banyak,
+              'bulan_stok' => $barangTotalStok->bulan_stok,
+              'tahun_stok' => $barangTotalStok->tahun_stok,
               'barang_keluar' => [
                 'banyak' => $barangMasuk->banyak,
                 'waktu' => $barangMasuk->waktu,
@@ -140,36 +170,40 @@ class BarangStokController extends Controller
               'waktu' => $tanggal,
             ]);
 
-            BarangTotalStok::create([
-              'barang_id' => $request->barang_id,
-            ]);
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+
+            if($barangTotalStok === null || $barangTotalStok->bulan_stok !== $namaBulan) {
+              BarangTotalStok::create([
+                'barang_id' => $request->barang_id,
+                'total_banyak' => 0,
+              ]);
+            }
 
             $barangStok = BarangStok::where('barang_id', $id)->first();
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
             $barangKeluar = LogBarangKeluar::latest()->first();
             $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
             
             BarangStok::where('barang_id',$id)->update([
               'stok_keluar' => $barangStok->stok_keluar + $banyakBarang,
-              'total_banyak' => $barangStok->total_banyak - $banyakBarang,
-              'bulan_stok' => $namaBulan,
-              'tahun_stok' => $tahun,
             ]);
 
             BarangTotalStok::where('barang_id',$id)->update([
-              'total_banyak' => $barangStok->total_banyak + $banyakBarang,
+              'total_banyak' => $barangTotalStok->total_banyak - $banyakBarang,
               'bulan_stok' => $namaBulan,
               'tahun_stok' => $tahun,
             ]);
 
             $barangStok = BarangStok::where('barang_id', $id)->first();
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
 
             $data = [
               'nama' => $barangStok->barang->nama,
               'stok_masuk' => $barangStok->stok_masuk,
               'stok_keluar' => $barangStok->stok_keluar,
-              'total_banyak' => $barangStok->total_banyak,
-              'bulan_stok' => $barangStok->bulan_stok,
-              'tahun_stok' => $barangStok->tahun_stok,
+              'total_banyak' => $barangTotalStok->total_banyak,
+              'bulan_stok' => $barangTotalStok->bulan_stok,
+              'tahun_stok' => $barangTotalStok->tahun_stok,
               'barang_keluar' => [
                 'banyak' => $barangKeluar->banyak,
                 'waktu' => $barangKeluar->waktu,
@@ -202,15 +236,49 @@ class BarangStokController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $id)
     {
         //
         try {
-          $barang = BarangStok::findOrFail($id);
+
+          $data = BarangStok::findOrFail($id);
+          $tanggalValue = $request->query('tanggal');
+          $bulanValue = $request->query('bulan');
+          $tahunValue = $request->query('tahun');
+
+          // Menggabungkan data menjadi satu data tanggal yang lengkap
+          $tanggalLengkap = Carbon::create($tahunValue, $bulanValue, $tanggalValue);
+
+          // Mengubah format tanggal menjadi format yang diinginkan (misalnya: 'Y-m-d')
+          $tanggalFormatYMD = $tanggalLengkap->format('Y-m-d');
+
+          // Mengubah format tanggal menjadi format lain (misalnya: 'd-m-Y')
+          $tanggalFormatDMY = $tanggalLengkap->format('d-m-Y');
+
+          //variable
+          $arrayData = [];
+
+          // Mengisi arrayData dengan atribut-atribut yang diinginkan
+          $arrayData[] = [
+            'nama' => $data->barang->nama,
+            'tanggal' => $tanggalValue,
+            'bulan' => $bulanValue,
+            'tahun' => $tahunValue,
+            // Tambahkan atribut lain yang ingin Anda tampilkan
+          ];
+
+          $tanggalWaktu = '2023-07-21T02:37:28.000000Z';
+
+          // Menggunakan Carbon untuk memisahkan tanggal
+          $tanggal = Carbon::parse($tanggalWaktu)->toDateString();
+
+          // $users = BarangStok::whereDate('created_at', $tanggalFormatYMD)->get();
+          $users = BarangStok::where('barang_id', '2')->get();
   
           return response()->json([
             'message' => 'Data ditemukan',
-            'data' => $barang
+            'data' => $users,
+            'array_data' => $arrayData,
           ], 200);
 
         } catch (\Exception $e) {

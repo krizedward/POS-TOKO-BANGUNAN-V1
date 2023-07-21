@@ -824,7 +824,6 @@ class BarangTableSeeder extends Seeder
               'barang_id' => $lastId,
               'stok_masuk' => 0,
               'stok_keluar' => 0,
-              'total_banyak' => 0,
             ]);
         }
     }
