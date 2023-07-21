@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\BarangStok;
+use App\Models\BarangTotalStok;
 use App\Models\LogBarangKeluar;
 use App\Models\LogBarangMasuk;
 
@@ -14,6 +15,11 @@ class BarangStokController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * barang_total 
+     * barang_id
+     * bulan
+     * tahun
+     * ket_barang (lokasi)
      */
     public function index()
     {
@@ -91,12 +97,19 @@ class BarangStokController extends Controller
               'waktu' => $tanggal,
             ]);
 
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+            ]);
+
             $barangStok = BarangStok::where('barang_id', $id)->first();
             $barangMasuk = LogBarangMasuk::latest()->first();
             $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
             
             BarangStok::where('barang_id',$id)->update([
               'stok_masuk' => $barangStok->stok_masuk + $banyakBarang,
+            ]);
+
+            BarangTotalStok::where('barang_id',$id)->update([
               'total_banyak' => $barangStok->total_banyak + $banyakBarang,
               'bulan_stok' => $namaBulan,
               'tahun_stok' => $tahun,
@@ -127,6 +140,10 @@ class BarangStokController extends Controller
               'waktu' => $tanggal,
             ]);
 
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+            ]);
+
             $barangStok = BarangStok::where('barang_id', $id)->first();
             $barangKeluar = LogBarangKeluar::latest()->first();
             $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
@@ -134,6 +151,12 @@ class BarangStokController extends Controller
             BarangStok::where('barang_id',$id)->update([
               'stok_keluar' => $barangStok->stok_keluar + $banyakBarang,
               'total_banyak' => $barangStok->total_banyak - $banyakBarang,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $tahun,
+            ]);
+
+            BarangTotalStok::where('barang_id',$id)->update([
+              'total_banyak' => $barangStok->total_banyak + $banyakBarang,
               'bulan_stok' => $namaBulan,
               'tahun_stok' => $tahun,
             ]);

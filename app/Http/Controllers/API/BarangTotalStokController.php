@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\LogBarangKeluar;
+use App\Models\BarangTotalStok;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LogBarangKeluarController extends Controller
+class BarangTotalStokController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +15,15 @@ class LogBarangKeluarController extends Controller
     public function index()
     {
         //
-        $data = LogBarangKeluar::take(5)->get();
+        $data = BarangTotalStok::take(5)->get();
 
         $namaArray = [];
 
         foreach ($data as $item) {
           $namaArray[] = [
             'nama' => $item->barang->nama,
-            'banyak' => $item->banyak,
-            'waktu' => $item->waktu,
+            'bulan_stok' => $item->bulan_stok,
+            'tahun_stok' => $item->tahun_stok,
           ];
         }
 

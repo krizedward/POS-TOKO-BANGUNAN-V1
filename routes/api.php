@@ -12,6 +12,7 @@ use App\Http\Controllers\API\BarangStokController;
 use App\Http\Controllers\API\BarangFotoController;
 use App\Http\Controllers\API\LogBarangMasukController;
 use App\Http\Controllers\API\LogBarangKeluarController;
+use App\Http\Controllers\API\BarangTotalStokController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/barang-ukuran', [BarangUkuranController::class, 'index']);
 // barang master
 Route::get('/barang-master', [BarangMasterController::class, 'index']);
+// barang total stok
+Route::get('/barang-total-stok', [BarangTotalStokController::class, 'index']);
 // barang stok
 Route::get('/barang-stok', [BarangStokController::class, 'index']);
 Route::post('/barang-stok', [BarangStokController::class, 'store']);
