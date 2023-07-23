@@ -50,7 +50,7 @@ class BarangStokController extends Controller
           'message' => 'Data berhasil ditampilkan',
           'data' => $namaBarangArray,
         ], 200);
-    }
+    } // berhasil
 
     /**
      * Store a newly created resource in storage.
@@ -61,7 +61,14 @@ class BarangStokController extends Controller
 
         $validator = Validator::make($request->all(), [
           'barang_id' => 'required',
-          'banyak' => 'required',
+          'banyak' => [
+            'required',
+            function ($attribute, $value, $fail) {
+              if ($value < 0) {
+                $fail($attribute.' tidak boleh bernilai minus.');
+              }
+            },
+          ],
           'status' => 'required',
           // Tambahkan aturan validasi lain sesuai kebutuhan
         ]); // validasi
@@ -89,47 +96,81 @@ class BarangStokController extends Controller
           $hari = $tanggalArray[2];
           // Mendapatkan nama bulan dalam bentuk string
           $namaBulan = date("F", strtotime($tanggal));
+          $dataTahun = $tahun;
+          $currentTime = Carbon::now();
 
-          if ($statusBarang ==  'masuk') 
+          $scanTotalBarang = BarangTotalStok::all();
+
+          if($scanTotalBarang->isEmpty())
           {
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+              'total_banyak' => 0,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $dataTahun,
+            ]);
+          } // untuk fase isi data
+
+          $scanDataBulanTB = BarangTotalStok::where('barang_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+            
+          if($scanDataBulanTB->bulan_stok !== $namaBulan
+          && $scanDataBulanTB->tahun_stok !== $dataTahun)
+          {
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+              'total_banyak' => 0,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $dataTahun,
+            ]);
+          } // kondisi pertama
+
+          if($scanDataBulanTB->tahun_stok !== $dataTahun)
+          {
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+              'total_banyak' => 0,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $dataTahun,
+            ]);
+          } // kondisi kedua
+
+          if($scanDataBulanTB->bulan_stok !== $namaBulan)
+          {
+            BarangTotalStok::create([
+              'barang_id' => $request->barang_id,
+              'total_banyak' => 0,
+              'bulan_stok' => $namaBulan,
+              'tahun_stok' => $dataTahun,
+            ]);
+          } // kondisi ketiga
+
+          // jika nilai barang stok kosong (stok keluar kosong)
+          // maka respon nilai keluar tidak bisa masuk
+          $scanBarangStok = BarangStok::where('barang_id', $id)->first();
+          $scanBarangTotalStok = BarangTotalStok::where('barang_id', $id)
+              ->orderBy('created_at', 'desc')
+              ->first();
+          $prosesJumlah = $scanBarangTotalStok->total_stok - $banyakBarang;
+
+          if ($statusBarang ==  'masuk') // jika data masuk
+          {
+
             LogBarangMasuk::create([
               'barang_id' => $request->barang_id,
               'banyak' => $request->banyak,
               'waktu' => $tanggal,
+              'created_at' => $currentTime,
+              'updated_at' => $currentTime,
             ]);
-
-            // $barangTotalStok = BarangTotalStok::where('barang_id', $id)
-            //   ->orderBy('created_at', 'desc')
-            //   ->get();
-
-            if($barangTotalStok === null || $barangTotalStok->bulan_stok !== $namaBulan) {
-              BarangTotalStok::create([
-                'barang_id' => $request->barang_id,
-                'total_banyak' => 0,
-                'bulan_stok' => $namaBulan,
-              ]);
-            }
-
+            // ambil barang stok
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+            // ambil barang total stok (karena hanya ada satu id)
             $barangTotalStok = BarangTotalStok::where('barang_id', $id)
               ->orderBy('created_at', 'desc')
-              ->get();
-
-            // BarangTotalStok::create([
-            //   'barang_id' => $request->barang_id,
-            //   'total_banyak' => 0,
-            //   'bulan_stok' => $namaBulan,
-            // ]);
-
-            // if($barangTotalStok === null || $barangTotalStok->bulan_stok !== $namaBulan) {
-            //   BarangTotalStok::create([
-            //     'barang_id' => $request->barang_id,
-            //     'total_banyak' => 0,
-            //     'bulan_stok' => $namaBulan,
-            //   ]);
-            // }
-
-            $barangStok = BarangStok::where('barang_id', $id)->first();
-            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+              ->first();
+            // ambil log barang masuk
             $barangMasuk = LogBarangMasuk::latest()->first();
             $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
             
@@ -139,13 +180,17 @@ class BarangStokController extends Controller
 
             BarangTotalStok::where('barang_id',$id)
             ->where('bulan_stok', $namaBulan) // Bulan bukan 'July'
+            ->where('tahun_stok', $dataTahun)
             ->update([
               'total_banyak' => $barangTotalStok->total_banyak + $banyakBarang,
-              'tahun_stok' => $tahun,
             ]);
 
             $barangStok = BarangStok::where('barang_id', $id)->first();
-            $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+            // $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)
+              ->orderBy('created_at', 'desc')
+              ->first();
             
             $data = [
               'nama' => $barangStok->barang->nama,
@@ -160,14 +205,76 @@ class BarangStokController extends Controller
               ]
             ];
 
-          } // memasukan data barang masuk
+          }
 
-          if ($statusBarang ==  'keluar')
+          else if ($statusBarang ==  'keluar' && $scanBarangStok->stok_masuk != 0
+          && $scanBarangTotalStok->total_banyak > 0 && $prosesJumlah <= 0) // jika data keluar
           {
             LogBarangKeluar::create([
               'barang_id' => $request->barang_id,
               'banyak' => $request->banyak,
               'waktu' => $tanggal,
+              'created_at' => $currentTime,
+              'updated_at' => $currentTime,
+            ]);
+            // ambil barang stok
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+            // ambil barang total stok
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)
+              ->orderBy('created_at', 'desc')
+              ->first();
+            // ambil log barang masuk
+            $barangMasuk = LogBarangMasuk::latest()->first();
+            $jumlahMasukSebelumnya = LogBarangMasuk::where('barang_id', $id)->sum('banyak');
+            
+            BarangStok::where('barang_id',$id)->update([
+              'stok_keluar' => $barangStok->stok_keluar + $banyakBarang,
+            ]);
+
+            BarangTotalStok::where('barang_id',$id)
+            ->where('bulan_stok', $namaBulan) // Bulan bukan 'July'
+            ->where('tahun_stok', $dataTahun)
+            ->update([
+              'total_banyak' => $barangTotalStok->total_banyak - $banyakBarang,
+            ]); // mengubah nilai total banyak
+
+            $barangStok = BarangStok::where('barang_id', $id)->first();
+            // $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
+
+            $barangTotalStok = BarangTotalStok::where('barang_id', $id)
+              ->orderBy('created_at', 'desc')
+              ->first();
+            
+            $data = [
+              'nama' => $barangStok->barang->nama,
+              'stok_masuk' => $barangStok->stok_masuk,
+              'stok_keluar' => $barangStok->stok_keluar,
+              'total_banyak' => $barangTotalStok->total_banyak,
+              'bulan_stok' => $barangTotalStok->bulan_stok,
+              'tahun_stok' => $barangTotalStok->tahun_stok,
+              'barang_keluar' => [
+                'banyak' => $barangMasuk->banyak,
+                'waktu' => $barangMasuk->waktu,
+              ]
+            ];
+
+          }
+
+          else {
+            return response()->json([
+              'status' => 'error',
+              'message' => 'Ada kesalahan data untuk diproses',
+            ], 500);
+          }
+
+          if ($statusBarang ==  'keluar_old') // jika data keluar
+          {
+            LogBarangKeluar::create([
+              'barang_id' => $request->barang_id,
+              'banyak' => $request->banyak,
+              'waktu' => $tanggal,
+              'created_at' => $currentTime,
+              'updated_at' => $currentTime,
             ]);
 
             $barangTotalStok = BarangTotalStok::where('barang_id', $id)->first();
@@ -231,7 +338,7 @@ class BarangStokController extends Controller
         ], 500);
 
       } 
-    }
+    } // berhasil
 
     /**
      * Display the specified resource.
