@@ -22,10 +22,13 @@ use App\Http\Controllers\BarangStokController;
 use App\Http\Controllers\LogBarangMasukController;
 use App\Http\Controllers\LogBarangKeluarController;
 use App\Http\Controllers\BarangFotoController;
+use App\Http\Controllers\DashboardController;
 
 // Test
-Route::get('/', [BarangFotoController::class, 'index']);
-// Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+// Barang Foto
+Route::get('/barang-foto', [BarangFotoController::class, 'index']);
 
 //Log Barang Keluar
 Route::get('/log-barang-keluar', [LogBarangKeluarController::class, 'index']);
