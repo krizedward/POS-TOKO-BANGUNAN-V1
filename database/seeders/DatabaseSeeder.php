@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             KategoriBarangTableSeeder::class,
             BarangSatuanTableSeeder::class,
             BarangTableSeeder::class,
+            OrderBarangTableSeeder::class,
+            TemporderBarangTableSeeder::class,
             
             // BarangUkuranTableSeeder::class,
             // BarangMasterTableSeeder::class,

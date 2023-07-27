@@ -13,7 +13,8 @@ use App\Http\Controllers\API\BarangFotoController;
 use App\Http\Controllers\API\LogBarangMasukController;
 use App\Http\Controllers\API\LogBarangKeluarController;
 use App\Http\Controllers\API\BarangTotalStokController;
-
+use App\Http\Controllers\API\OrderBarangController;
+use App\Http\Controllers\API\TemporderBarangController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,6 +29,10 @@ use App\Http\Controllers\API\BarangTotalStokController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// temporder barang
+Route::get('/temporder-barang', [TemporderBarangController::class, 'index']);
+// order barang
+Route::get('/order-barang', [OrderBarangController::class, 'index']);
 // barang satuan
 Route::get('/barang-satuan', [BarangSatuanController::class, 'index']);
 // barang
